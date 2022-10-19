@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import { signIn, signOut, useSession } from "next-auth/react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import { trpc } from "../utils/trpc";
 
 const Messages = () => {
@@ -28,6 +29,8 @@ const Messages = () => {
 
 const Home: NextPage = () => {
   const { data: session, status } = useSession();
+  const [message, setMessage] = useState("");
+  const postMessage = trpc.guestbook.postMessage.useMutation();
 
   if (status === "loading") {
     return <main className="flex flex-col items-center pt-4">Loading...</main>;
@@ -41,6 +44,23 @@ const Home: NextPage = () => {
     signOut();
   }
 
+  function handleOnChange(event: ChangeEvent<HTMLInputElement>) {
+    setMessage(event.target.value);
+  }
+
+  function handleFormSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    if (session?.user !== undefined) {
+      postMessage.mutate({
+        name: session?.user.name as string,
+        message,
+      });
+    }
+
+    setMessage("");
+  }
+
   return (
     <main className="flex flex-col items-center">
       <h1 className="pt-4 text-3xl">Guestbook</h1>
@@ -51,6 +71,28 @@ const Home: NextPage = () => {
             <p>Hi, {session.user?.name}!</p>
 
             <button onClick={handleSignOut}>Logout</button>
+
+            <div className="pt-6">
+              <form
+                className="flex gap-2"
+                onSubmit={(event) => handleFormSubmit(event)}
+              >
+                <input
+                  type="text"
+                  value={message}
+                  placeholder="Your message..."
+                  maxLength={100}
+                  onChange={(event) => handleOnChange(event)}
+                  className="rounded-md border-2 border-zinc-800 bg-neutral-900 px-4 py-2 focus:outline-none"
+                />
+                <button
+                  type="submit"
+                  className="rounded-md border-2 border-zinc-800 p-2 focus:outline-none"
+                >
+                  Submit
+                </button>
+              </form>
+            </div>
 
             <div className="pt-10">
               <Messages />
