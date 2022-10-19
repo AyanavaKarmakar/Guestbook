@@ -5,7 +5,7 @@ const Home: NextPage = () => {
   const { data: session, status } = useSession();
 
   if (status === "loading") {
-    return <main>Loading...</main>;
+    return <main className="flex flex-col items-center pt-4">Loading...</main>;
   }
 
   function handleGitHubSignIn() {
