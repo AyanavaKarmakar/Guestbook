@@ -1,33 +1,29 @@
 import type { NextPage } from "next";
-import { signIn, signOut, useSession } from "next-auth/react";
-import { ChangeEvent, FormEvent, useState } from "react";
+import { useSession } from "next-auth/react";
+import { ChangeEvent, FormEvent, useState, useEffect } from "react";
 import { trpc } from "../utils/trpc";
+import { Messages, Navbar } from "../components";
+import { z } from "zod";
+import { useMobileDeviceStore } from "../utils/store";
 
-const Messages = () => {
-  const { data: messages, isLoading } = trpc.guestbook.getAll.useQuery();
+const PropsValidator = z.object({
+  userAgent: z.string().optional(),
+});
 
-  if (isLoading === true) {
-    return <div>Fetching Messages...</div>;
-  }
+type Props = z.infer<typeof PropsValidator>;
 
-  return (
-    <div className="flex flex-col gap-4">
-      <h2>
-        <u>Messages</u>
-      </h2>
-      {messages?.map((msg, index) => {
-        return (
-          <div key={index}>
-            <p>{msg.message}</p>
-            <span>- {msg.name}</span>
-          </div>
-        );
-      })}
-    </div>
+const Home: NextPage = (props: Props) => {
+  /**
+   * ? Used for validating device type
+   */
+  const { userAgent } = props;
+  /**
+   * ? Checks if device type is mobile or not
+   */
+  const regexp = /android|iphone|kindle|ipad/i;
+  const setIsMobileDevice = useMobileDeviceStore(
+    (state) => state.setIsMobileDevice
   );
-};
-
-const Home: NextPage = () => {
   const ctx = trpc.useContext();
   const { data: session, status } = useSession();
   const [message, setMessage] = useState("");
@@ -53,16 +49,14 @@ const Home: NextPage = () => {
     },
   });
 
+  useEffect(() => {
+    if (userAgent !== undefined) {
+      setIsMobileDevice(regexp.test(userAgent));
+    }
+  });
+
   if (status === "loading") {
     return <main className="flex flex-col items-center pt-4">Loading...</main>;
-  }
-
-  function handleGitHubSignIn() {
-    signIn("github");
-  }
-
-  function handleSignOut() {
-    signOut();
   }
 
   function handleOnChange(event: ChangeEvent<HTMLInputElement>) {
@@ -83,54 +77,62 @@ const Home: NextPage = () => {
   }
 
   return (
-    <main className="flex flex-col items-center">
-      <h1 className="pt-4 text-3xl">Guestbook</h1>
-
-      <div className="pt-10">
-        {session ? (
-          <div>
-            <p>Hi, {session.user?.name}!</p>
-
-            <button onClick={handleSignOut}>Logout</button>
-
-            <div className="pt-6">
-              <form
-                className="flex gap-2"
-                onSubmit={(event) => handleFormSubmit(event)}
-              >
-                <input
-                  type="text"
-                  value={message}
-                  placeholder="Your message..."
-                  maxLength={100}
-                  onChange={(event) => handleOnChange(event)}
-                  className="rounded-md border-2 border-zinc-800 bg-neutral-900 px-4 py-2 focus:outline-none"
-                />
-                <button
-                  type="submit"
-                  className="rounded-md border-2 border-zinc-800 p-2 focus:outline-none"
+    <>
+      <header>
+        <Navbar
+          session={session}
+          userName={session?.user?.name}
+          userImage={session?.user?.image}
+        />
+      </header>
+      <main className="flex flex-col items-center">
+        <div className="pt-10">
+          {session ? (
+            <div>
+              <div className="pt-6">
+                <form
+                  className="flex gap-2"
+                  onSubmit={(event) => handleFormSubmit(event)}
                 >
-                  Submit
-                </button>
-              </form>
-            </div>
+                  <input
+                    type="text"
+                    value={message}
+                    placeholder="Your message..."
+                    maxLength={100}
+                    onChange={(event) => handleOnChange(event)}
+                    className="bg-neutral-900 rounded-md border-2 border-zinc-800 px-4 py-2 focus:outline-none"
+                  />
+                  <button
+                    type="submit"
+                    className="rounded-md border-2 border-zinc-800 p-2 focus:outline-none"
+                  >
+                    Submit
+                  </button>
+                </form>
+              </div>
 
-            <div className="pt-10">
-              <Messages />
+              <div className="pt-10">
+                <Messages />
+              </div>
             </div>
-          </div>
-        ) : (
-          <div>
-            <button onClick={handleGitHubSignIn}>Login with GitHub</button>
-
-            <div className="pt-10">
-              <Messages />
+          ) : (
+            <div>
+              <div className="pt-10">
+                <Messages />
+              </div>
             </div>
-          </div>
-        )}
-      </div>
-    </main>
+          )}
+        </div>
+      </main>
+    </>
   );
 };
 
 export default Home;
+
+Home.getInitialProps = async ({ req }) => {
+  const userAgent = (
+    req ? req.headers["user-agent"] : navigator.userAgent
+  ) as Props;
+  return PropsValidator.parse({ userAgent });
+};
