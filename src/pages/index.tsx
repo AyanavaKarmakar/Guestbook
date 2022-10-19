@@ -1,10 +1,29 @@
 import type { NextPage } from "next";
 import { useSession } from "next-auth/react";
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useState, useEffect } from "react";
 import { trpc } from "../utils/trpc";
 import { Messages, Navbar } from "../components";
+import { z } from "zod";
+import { useMobileDeviceStore } from "../utils/store";
 
-const Home: NextPage = () => {
+const PropsValidator = z.object({
+  userAgent: z.string().optional(),
+});
+
+type Props = z.infer<typeof PropsValidator>;
+
+const Home: NextPage = (props: Props) => {
+  /**
+   * ? Used for validating device type
+   */
+  const { userAgent } = props;
+  /**
+   * ? Checks if device type is mobile or not
+   */
+  const regexp = /android|iphone|kindle|ipad/i;
+  const setIsMobileDevice = useMobileDeviceStore(
+    (state) => state.setIsMobileDevice
+  );
   const ctx = trpc.useContext();
   const { data: session, status } = useSession();
   const [message, setMessage] = useState("");
@@ -28,6 +47,12 @@ const Home: NextPage = () => {
     onSettled: () => {
       ctx.guestbook.getAll.invalidate();
     },
+  });
+
+  useEffect(() => {
+    if (userAgent !== undefined) {
+      setIsMobileDevice(regexp.test(userAgent));
+    }
   });
 
   if (status === "loading") {
@@ -104,3 +129,10 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
+Home.getInitialProps = async ({ req }) => {
+  const userAgent = (
+    req ? req.headers["user-agent"] : navigator.userAgent
+  ) as Props;
+  return PropsValidator.parse({ userAgent });
+};

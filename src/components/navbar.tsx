@@ -1,6 +1,7 @@
 import { Session } from "next-auth";
 import { signIn, signOut } from "next-auth/react";
 import Image from "next/image";
+import { useMobileDeviceStore } from "../utils/store";
 
 interface Props {
   userName?: string | null;
@@ -10,6 +11,7 @@ interface Props {
 
 export const Navbar = (props: Props) => {
   const { userName, userImage, session } = props;
+  const isMobileDevice = useMobileDeviceStore((state) => state.isMobileDevice);
 
   function handleGitHubSignIn() {
     signIn("github");
@@ -22,7 +24,7 @@ export const Navbar = (props: Props) => {
   return (
     <div className="navbar bg-gradient-to-r from-indigo-600 bg-auto">
       <div className="navbar-start">
-        <h1 className="font-mono text-4xl font-extrabold uppercase tracking-wider text-white subpixel-antialiased">
+        <h1 className="ml-1 font-mono text-4xl font-extrabold uppercase tracking-wider text-white subpixel-antialiased">
           <span className="bg-gradient-to-r from-violet-100 to-cyan-200 bg-clip-text text-transparent">
             Guestbook
           </span>
@@ -30,11 +32,13 @@ export const Navbar = (props: Props) => {
       </div>
       {session ? (
         <>
-          <div className="navbar-center">
-            <h2 className="font-mono text-xl font-semibold tracking-wider text-white subpixel-antialiased">
-              {userName}
-            </h2>
-          </div>
+          {isMobileDevice !== true && (
+            <div className="navbar-center">
+              <h2 className="font-mono text-xl font-semibold tracking-wider text-white subpixel-antialiased">
+                Hi, {userName}!
+              </h2>
+            </div>
+          )}
           {userImage !== null && userImage !== undefined && (
             <div className="navbar-end">
               <div className="dropdown-end dropdown">
