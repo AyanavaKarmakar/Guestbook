@@ -12,10 +12,24 @@ const Home: NextPage = () => {
     signIn("github");
   }
 
+  function handleSignOut() {
+    signOut();
+  }
+
   return (
     <main>
       <h1>Guestbook</h1>
-      <button onClick={handleGitHubSignIn}>Login with GitHub</button>
+      {session ? (
+        <div>
+          <p>Hi, {session.user?.name}!</p>
+
+          <button onClick={handleSignOut}>Logout</button>
+        </div>
+      ) : (
+        <div>
+          <button onClick={handleGitHubSignIn}>Login with GitHub</button>
+        </div>
+      )}
     </main>
   );
 };
