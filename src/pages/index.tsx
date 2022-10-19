@@ -5,7 +5,6 @@ const Home: NextPage = () => {
     <main>
       <h1>Guestbook</h1>
     </main>
-    
   );
 };
 
