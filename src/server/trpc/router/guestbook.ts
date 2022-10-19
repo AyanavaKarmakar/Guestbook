@@ -1,11 +1,31 @@
-import { router, protectedProcedure } from "../trpc";
+import { router, protectedProcedure, publicProcedure } from "../trpc";
 import { z } from "zod";
 
 /**
- * ? create a new row in the Guestbook table
  * @see https://www.nexxel.dev/blog/ct3a-guestbook
  */
 export const guestbookRouter = router({
+  /**
+   * ? Query to get all messages in the guestbook
+   */
+  getAll: publicProcedure.query(async ({ ctx }) => {
+    try {
+      return await ctx.prisma.guestbook.findMany({
+        select: {
+          name: true,
+          message: true,
+        },
+        orderBy: {
+          createdAt: "desc",
+        },
+      });
+    } catch (error) {
+      console.log("error", error);
+    }
+  }),
+  /**
+   * ? Query to create a new entry (row) in the guestbook
+   */
   postMessage: protectedProcedure
     .input(
       z.object({
