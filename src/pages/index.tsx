@@ -17,19 +17,22 @@ const Home: NextPage = () => {
   }
 
   return (
-    <main>
-      <h1>Guestbook</h1>
-      {session ? (
-        <div>
-          <p>Hi, {session.user?.name}!</p>
+    <main className="flex flex-col items-center">
+      <h1 className="pt-4 text-3xl">Guestbook</h1>
 
-          <button onClick={handleSignOut}>Logout</button>
-        </div>
-      ) : (
-        <div>
-          <button onClick={handleGitHubSignIn}>Login with GitHub</button>
-        </div>
-      )}
+      <div className="pt-10">
+        {session ? (
+          <div>
+            <p>Hi, {session.user?.name}!</p>
+
+            <button onClick={handleSignOut}>Logout</button>
+          </div>
+        ) : (
+          <div>
+            <button onClick={handleGitHubSignIn}>Login with GitHub</button>
+          </div>
+        )}
+      </div>
     </main>
   );
 };
