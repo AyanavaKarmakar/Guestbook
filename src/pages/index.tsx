@@ -2,30 +2,7 @@ import type { NextPage } from "next";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { trpc } from "../utils/trpc";
-
-const Messages = () => {
-  const { data: messages, isLoading } = trpc.guestbook.getAll.useQuery();
-
-  if (isLoading === true) {
-    return <div>Fetching Messages...</div>;
-  }
-
-  return (
-    <div className="flex flex-col gap-4">
-      <h2>
-        <u>Messages</u>
-      </h2>
-      {messages?.map((msg, index) => {
-        return (
-          <div key={index}>
-            <p>{msg.message}</p>
-            <span>- {msg.name}</span>
-          </div>
-        );
-      })}
-    </div>
-  );
-};
+import { Messages } from "../components";
 
 const Home: NextPage = () => {
   const ctx = trpc.useContext();
@@ -104,7 +81,7 @@ const Home: NextPage = () => {
                   placeholder="Your message..."
                   maxLength={100}
                   onChange={(event) => handleOnChange(event)}
-                  className="rounded-md border-2 border-zinc-800 bg-neutral-900 px-4 py-2 focus:outline-none"
+                  className="bg-neutral-900 rounded-md border-2 border-zinc-800 px-4 py-2 focus:outline-none"
                 />
                 <button
                   type="submit"
