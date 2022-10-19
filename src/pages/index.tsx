@@ -28,9 +28,30 @@ const Messages = () => {
 };
 
 const Home: NextPage = () => {
+  const ctx = trpc.useContext();
   const { data: session, status } = useSession();
   const [message, setMessage] = useState("");
-  const postMessage = trpc.guestbook.postMessage.useMutation();
+  const postMessage = trpc.guestbook.postMessage.useMutation({
+    /**
+     * ? Configure optimistic UI update
+     * @see https://trpc.io/docs/v10/useContext#helpers
+     */
+    onMutate: () => {
+      ctx.guestbook.getAll.cancel();
+      const optimisticUpdate = ctx.guestbook.getAll.getData();
+
+      if (optimisticUpdate) {
+        ctx.guestbook.getAll.setData(optimisticUpdate);
+      }
+    },
+
+    /**
+     * @see https://trpc.io/docs/v10/useContext#invalidating-a-single-query
+     */
+    onSettled: () => {
+      ctx.guestbook.getAll.invalidate();
+    },
+  });
 
   if (status === "loading") {
     return <main className="flex flex-col items-center pt-4">Loading...</main>;
