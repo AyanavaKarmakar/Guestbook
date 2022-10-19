@@ -1,8 +1,8 @@
 import type { NextPage } from "next";
-import { signIn, signOut, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { trpc } from "../utils/trpc";
-import { Messages } from "../components";
+import { Messages, Navbar } from "../components";
 
 const Home: NextPage = () => {
   const ctx = trpc.useContext();
@@ -34,14 +34,6 @@ const Home: NextPage = () => {
     return <main className="flex flex-col items-center pt-4">Loading...</main>;
   }
 
-  function handleGitHubSignIn() {
-    signIn("github");
-  }
-
-  function handleSignOut() {
-    signOut();
-  }
-
   function handleOnChange(event: ChangeEvent<HTMLInputElement>) {
     setMessage(event.target.value);
   }
@@ -60,53 +52,54 @@ const Home: NextPage = () => {
   }
 
   return (
-    <main className="flex flex-col items-center">
-      <h1 className="pt-4 text-3xl">Guestbook</h1>
-
-      <div className="pt-10">
-        {session ? (
-          <div>
-            <p>Hi, {session.user?.name}!</p>
-
-            <button onClick={handleSignOut}>Logout</button>
-
-            <div className="pt-6">
-              <form
-                className="flex gap-2"
-                onSubmit={(event) => handleFormSubmit(event)}
-              >
-                <input
-                  type="text"
-                  value={message}
-                  placeholder="Your message..."
-                  maxLength={100}
-                  onChange={(event) => handleOnChange(event)}
-                  className="bg-neutral-900 rounded-md border-2 border-zinc-800 px-4 py-2 focus:outline-none"
-                />
-                <button
-                  type="submit"
-                  className="rounded-md border-2 border-zinc-800 p-2 focus:outline-none"
+    <>
+      <header>
+        <Navbar
+          session={session}
+          userName={session?.user?.name}
+          userImage={session?.user?.image}
+        />
+      </header>
+      <main className="flex flex-col items-center">
+        <div className="pt-10">
+          {session ? (
+            <div>
+              <div className="pt-6">
+                <form
+                  className="flex gap-2"
+                  onSubmit={(event) => handleFormSubmit(event)}
                 >
-                  Submit
-                </button>
-              </form>
-            </div>
+                  <input
+                    type="text"
+                    value={message}
+                    placeholder="Your message..."
+                    maxLength={100}
+                    onChange={(event) => handleOnChange(event)}
+                    className="bg-neutral-900 rounded-md border-2 border-zinc-800 px-4 py-2 focus:outline-none"
+                  />
+                  <button
+                    type="submit"
+                    className="rounded-md border-2 border-zinc-800 p-2 focus:outline-none"
+                  >
+                    Submit
+                  </button>
+                </form>
+              </div>
 
-            <div className="pt-10">
-              <Messages />
+              <div className="pt-10">
+                <Messages />
+              </div>
             </div>
-          </div>
-        ) : (
-          <div>
-            <button onClick={handleGitHubSignIn}>Login with GitHub</button>
-
-            <div className="pt-10">
-              <Messages />
+          ) : (
+            <div>
+              <div className="pt-10">
+                <Messages />
+              </div>
             </div>
-          </div>
-        )}
-      </div>
-    </main>
+          )}
+        </div>
+      </main>
+    </>
   );
 };
 
