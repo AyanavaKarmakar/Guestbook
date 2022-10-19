@@ -1,7 +1,13 @@
 import type { NextPage } from "next";
-import { signIn } from "next-auth/react";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 const Home: NextPage = () => {
+  const { data: session, status } = useSession();
+
+  if (status === "loading") {
+    return <main>Loading...</main>;
+  }
+
   function handleGitHubSignIn() {
     signIn("github");
   }
