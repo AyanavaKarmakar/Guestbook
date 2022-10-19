@@ -1,4 +1,4 @@
-import { router, publicProcedure } from "../trpc";
+import { router, protectedProcedure } from "../trpc";
 import { z } from "zod";
 
 /**
@@ -6,7 +6,7 @@ import { z } from "zod";
  * @see https://www.nexxel.dev/blog/ct3a-guestbook
  */
 export const guestbookRouter = router({
-  postMessage: publicProcedure
+  postMessage: protectedProcedure
     .input(
       z.object({
         name: z.string(),
