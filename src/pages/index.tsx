@@ -11,6 +11,9 @@ const Messages = () => {
 
   return (
     <div className="flex flex-col gap-4">
+      <h2>
+        <u>Messages</u>
+      </h2>
       {messages?.map((msg, index) => {
         return (
           <div key={index}>
