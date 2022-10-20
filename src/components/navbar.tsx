@@ -19,6 +19,10 @@ export const Navbar = (props: Props) => {
     signIn("github");
   }
 
+  function handleRedditSignIn() {
+    signIn("reddit");
+  }
+
   function handleSignOut() {
     signOut();
   }
@@ -49,18 +53,19 @@ export const Navbar = (props: Props) => {
               </h2>
             </div>
           )}
-          {userImage !== null && userImage !== undefined && (
-            <div className="navbar-end mr-1">
-              <button className="btn mr-1 bg-gradient-to-r from-sky-800 to-sky-600">
-                <a
-                  href="https://elfin.vercel.app/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <InfoIcon />
-                </a>
-              </button>
-              <Modal />
+
+          <div className="navbar-end mr-1">
+            <button className="btn mr-1 bg-gradient-to-r from-sky-800 to-sky-600">
+              <a
+                href="https://elfin.vercel.app/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <InfoIcon />
+              </a>
+            </button>
+            <Modal />
+            {userImage !== null && userImage !== undefined && (
               <div className="dropdown-end dropdown">
                 <label tabIndex={0} className="avatar btn btn-circle btn-ghost">
                   <div className="w-10 rounded-full">
@@ -86,8 +91,8 @@ export const Navbar = (props: Props) => {
                   </li>
                 </ul>
               </div>
-            </div>
-          )}
+            )}
+          </div>
         </>
       ) : (
         <div className="navbar-end">
@@ -102,10 +107,7 @@ export const Navbar = (props: Props) => {
           </button>
           <div className="dropdown-end dropdown">
             <label tabIndex={0}>
-              <button
-                // onClick={handleGitHubSignIn}
-                className="btn bg-gradient-to-r from-green-800 to-green-600 font-mono text-xl tracking-widest text-white subpixel-antialiased"
-              >
+              <button className="btn bg-gradient-to-r from-green-800 to-green-600 font-mono text-xl tracking-widest text-white subpixel-antialiased">
                 Login
               </button>
             </label>
@@ -117,7 +119,7 @@ export const Navbar = (props: Props) => {
                 <a onClick={handleGitHubSignIn}>GitHub</a>
               </li>
               <li className="bg-gradient-to-r from-yellow-700 to-cyan-700 font-mono text-xl font-semibold tracking-widest text-white subpixel-antialiased">
-                <a>Coming Soon...</a>
+                <a onClick={handleRedditSignIn}>Coming Soon...</a>
               </li>
             </ul>
           </div>
