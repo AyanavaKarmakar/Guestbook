@@ -51,13 +51,19 @@ export const Navbar = (props: Props) => {
       </div>
       {session ? (
         <>
-          {isMobileDevice !== true && (
-            <div className="navbar-center">
-              <h2 className="font-mono text-xl font-semibold tracking-widest text-white subpixel-antialiased">
-                Hi, {userName !== null ? userName : userEmail}!
-              </h2>
-            </div>
-          )}
+          {isMobileDevice !== true &&
+            userEmail !== null &&
+            userEmail !== undefined && (
+              <div className="navbar-center">
+                <h2 className="font-mono text-xl font-semibold tracking-widest text-white subpixel-antialiased">
+                  Hi,{" "}
+                  {userName !== null
+                    ? userName
+                    : userEmail.substring(0, userEmail.lastIndexOf("@"))}
+                  !
+                </h2>
+              </div>
+            )}
 
           <div className="navbar-end mr-1">
             <button className="btn mr-1 bg-gradient-to-r from-sky-800 to-sky-600">

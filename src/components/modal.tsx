@@ -36,16 +36,25 @@ export const Modal = () => {
   }
 
   function handleSubmit() {
-    if (session?.user !== undefined && session?.user.name !== null) {
-      postMessage.mutate({
-        name: session?.user.name as string,
-        message,
-      });
-    } else if (session?.user !== undefined && session?.user.name === null) {
-      postMessage.mutate({
-        name: session?.user.email as string,
-        message,
-      });
+    if (session?.user !== undefined) {
+      if (session?.user.name !== null) {
+        postMessage.mutate({
+          name: session?.user.name as string,
+          message,
+        });
+      } else if (
+        session?.user.name === null &&
+        session.user.email !== null &&
+        session.user.email !== undefined
+      ) {
+        postMessage.mutate({
+          name: session?.user.email.substring(
+            0,
+            session?.user.email.lastIndexOf("@")
+          ) as string,
+          message,
+        });
+      }
     }
 
     setMessage("");
