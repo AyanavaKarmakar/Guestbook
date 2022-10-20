@@ -20,6 +20,7 @@
 - TypeScript
 - tRPC
 - TailwindCSS + daisyUI
+- framer-motion
 - Prisma
 - postgreSQL
 - zod
