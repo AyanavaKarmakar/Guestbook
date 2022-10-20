@@ -52,7 +52,10 @@ export const Navbar = (props: Props) => {
                   className="dropdown-content menu rounded-box menu-compact mt-3 w-52 p-2 shadow"
                 >
                   <li className="bg-error bg-gradient-to-r from-red-900 text-white">
-                    <a className="btn btn-ghost" onClick={handleSignOut}>
+                    <a
+                      className="btn btn-ghost font-mono text-xl tracking-wider subpixel-antialiased"
+                      onClick={handleSignOut}
+                    >
                       Logout
                     </a>
                   </li>
@@ -65,7 +68,7 @@ export const Navbar = (props: Props) => {
         <div className="navbar-end">
           <button
             onClick={handleGitHubSignIn}
-            className="btn btn-outline btn-success"
+            className="btn btn-outline btn-success font-mono text-xl tracking-wider subpixel-antialiased"
           >
             Login
           </button>
