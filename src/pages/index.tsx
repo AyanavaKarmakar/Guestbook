@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import { useSession } from "next-auth/react";
-import { useState, useEffect } from "react";
-import { Alert, Messages, Navbar } from "../components";
+import { useEffect } from "react";
+import { Alert, Footer, Messages, Navbar } from "../components";
 import { z } from "zod";
 import { useMobileDeviceStore } from "../utils/store";
 
@@ -60,6 +60,9 @@ const Home: NextPage = (props: Props) => {
           </div>
         </div>
       </main>
+      <footer>
+        <Footer />
+      </footer>
     </>
   );
 };
