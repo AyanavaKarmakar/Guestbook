@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import { useSession } from "next-auth/react";
 import { ChangeEvent, FormEvent, useState, useEffect } from "react";
 import { trpc } from "../utils/trpc";
-import { Messages, Navbar } from "../components";
+import { Alert, Messages, Navbar } from "../components";
 import { z } from "zod";
 import { useMobileDeviceStore } from "../utils/store";
 
@@ -88,6 +88,11 @@ const Home: NextPage = (props: Props) => {
           userName={session?.user?.name}
           userImage={session?.user?.image}
         />
+        {!session && (
+          <div className="mt-2 mb-2 ml-1 mr-1">
+            <Alert />
+          </div>
+        )}
       </header>
       <main className="flex flex-col items-center">
         <div className="pt-10">
