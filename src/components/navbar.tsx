@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { Session } from "next-auth";
 import { signIn, signOut } from "next-auth/react";
 import Image from "next/image";
@@ -36,17 +37,37 @@ export const Navbar = (props: Props) => {
     <div className="navbar bg-gradient-to-r from-indigo-600 bg-auto">
       <div className="navbar-start">
         {isMobileDevice === true ? (
-          <h1 className="ml-1 text-3xl font-bold uppercase tracking-widest text-white subpixel-antialiased">
-            <span className="bg-gradient-to-r from-violet-100 to-cyan-300 bg-clip-text text-transparent">
-              Guestbook
-            </span>
-          </h1>
+          <motion.div
+            initial={{ scale: 0.0 }}
+            animate={{ scale: 1.0 }}
+            transition={{
+              type: "spring",
+              stiffness: 260,
+              damping: 20,
+            }}
+          >
+            <h1 className="ml-1 text-3xl font-bold uppercase tracking-widest text-white subpixel-antialiased">
+              <span className="bg-gradient-to-r from-violet-100 to-cyan-300 bg-clip-text text-transparent">
+                Guestbook
+              </span>
+            </h1>
+          </motion.div>
         ) : (
-          <h1 className="ml-1 text-4xl font-bold uppercase tracking-widest text-white subpixel-antialiased">
-            <span className="bg-gradient-to-r from-violet-100 to-cyan-300 bg-clip-text text-transparent">
-              Guestbook
-            </span>
-          </h1>
+          <motion.div
+            initial={{ scale: 0.0 }}
+            animate={{ scale: 1.0 }}
+            transition={{
+              type: "spring",
+              stiffness: 260,
+              damping: 20,
+            }}
+          >
+            <h1 className="ml-1 text-4xl font-bold uppercase tracking-widest text-white subpixel-antialiased">
+              <span className="bg-gradient-to-r from-violet-100 to-cyan-300 bg-clip-text text-transparent">
+                Guestbook
+              </span>
+            </h1>
+          </motion.div>
         )}
       </div>
       {session ? (
