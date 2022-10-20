@@ -193,7 +193,7 @@ export const Navbar = (props: Props) => {
               <li className="bg-gradient-to-r from-red-900 to-red-700 font-mono text-xl font-semibold tracking-widest text-white subpixel-antialiased">
                 <a onClick={handleRedditSignIn}>Reddit</a>
               </li>
-              <li>
+              <li className="bg-gradient-to-r from-green-900 to-cyan-700 font-mono text-xl font-semibold tracking-widest text-white subpixel-antialiased">
                 <a onClick={handleEmailSignIn}>Email</a>
               </li>
             </ul>
