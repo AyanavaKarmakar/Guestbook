@@ -118,8 +118,8 @@ export const Navbar = (props: Props) => {
               <li className="bg-gradient-to-r from-black to-indigo-900 font-mono text-xl font-semibold tracking-widest text-white subpixel-antialiased">
                 <a onClick={handleGitHubSignIn}>GitHub</a>
               </li>
-              <li className="bg-gradient-to-r from-yellow-700 to-cyan-700 font-mono text-xl font-semibold tracking-widest text-white subpixel-antialiased">
-                <a onClick={handleRedditSignIn}>Coming Soon...</a>
+              <li className="bg-gradient-to-r from-red-900 to-red-700 font-mono text-xl font-semibold tracking-widest text-white subpixel-antialiased">
+                <a onClick={handleRedditSignIn}>Reddit</a>
               </li>
             </ul>
           </div>
