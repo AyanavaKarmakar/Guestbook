@@ -12,15 +12,24 @@ export const Messages = () => {
   }
 
   return (
-    <div className="flex flex-col gap-4">
-      <h2>
-        <u>Messages</u>
-      </h2>
+    <div className="flex flex-col gap-5">
+      <article className="prose">
+        <h2 className="text-center text-5xl font-extrabold uppercase text-white">
+          <span className="bg-gradient-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent">
+            Guest Logs
+          </span>
+        </h2>
+      </article>
       {messages?.map((msg, index) => {
         return (
-          <div key={index}>
-            <p>{msg.message}</p>
-            <span>- {msg.name}</span>
+          <div
+            key={index}
+            className="card w-96 bg-gradient-to-r from-indigo-900 to-cyan-900 text-white"
+          >
+            <div className="card-body text-left font-mono tracking-wider subpixel-antialiased">
+              <h2 className="card-title">{msg.message}</h2>
+              <p>— {msg.name}</p>
+            </div>
           </div>
         );
       })}
