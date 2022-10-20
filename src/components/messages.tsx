@@ -4,7 +4,11 @@ export const Messages = () => {
   const { data: messages, isLoading } = trpc.guestbook.getAll.useQuery();
 
   if (isLoading === true) {
-    return <div>Fetching Messages...</div>;
+    return (
+      <div className="font-mono text-xl font-semibold tracking-wider text-white subpixel-antialiased">
+        Fetching Messages...
+      </div>
+    );
   }
 
   return (
