@@ -114,10 +114,7 @@ export const Navbar = (props: Props) => {
               className="dropdown-content menu rounded-box mt-3 w-52 p-2 shadow"
             >
               <li className="bg-gradient-to-r from-black to-indigo-900 font-mono text-xl font-semibold tracking-widest text-white subpixel-antialiased">
-                <a>GitHub</a>
-              </li>
-              <li className="bg-gradient-to-r from-blue-900 to-blue-500 font-mono text-xl font-semibold tracking-widest text-white subpixel-antialiased">
-                <a>Dropbox</a>
+                <a onClick={handleGitHubSignIn}>GitHub</a>
               </li>
               <li className="bg-gradient-to-r from-yellow-700 to-cyan-700 font-mono text-xl font-semibold tracking-widest text-white subpixel-antialiased">
                 <a>Email</a>
