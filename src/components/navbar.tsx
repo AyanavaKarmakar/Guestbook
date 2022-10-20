@@ -168,11 +168,21 @@ export const Navbar = (props: Props) => {
             </a>
           </button>
           <div className="dropdown-end dropdown">
-            <label tabIndex={0}>
-              <button className="btn bg-gradient-to-r from-green-800 to-green-600 font-mono text-xl tracking-widest text-white subpixel-antialiased">
-                Login
-              </button>
-            </label>
+            <motion.div
+              initial={{ scale: 0.0 }}
+              animate={{ scale: 1.0 }}
+              transition={{
+                type: "spring",
+                stiffness: 260,
+                damping: 20,
+              }}
+            >
+              <label tabIndex={0}>
+                <button className="btn bg-gradient-to-r from-green-800 to-green-600 font-mono text-xl tracking-widest text-white subpixel-antialiased">
+                  Login
+                </button>
+              </label>
+            </motion.div>
             <ul
               tabIndex={0}
               className="dropdown-content menu rounded-box mt-3 w-52 p-2 shadow"
