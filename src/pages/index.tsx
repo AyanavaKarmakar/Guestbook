@@ -56,7 +56,11 @@ const Home: NextPage = (props: Props) => {
   });
 
   if (status === "loading") {
-    return <main className="flex flex-col items-center pt-4">Loading...</main>;
+    return (
+      <main className="flex h-screen items-center justify-center font-mono text-3xl font-semibold tracking-wider text-white subpixel-antialiased">
+        Loading...
+      </main>
+    );
   }
 
   function handleOnChange(event: ChangeEvent<HTMLInputElement>) {
