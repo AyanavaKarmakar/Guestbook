@@ -100,12 +100,33 @@ export const Navbar = (props: Props) => {
               <InfoIcon />
             </a>
           </button>
-          <button
-            onClick={handleGitHubSignIn}
-            className="btn bg-gradient-to-r from-green-800 to-green-600 font-mono text-xl tracking-wider text-white subpixel-antialiased"
-          >
-            Login
-          </button>
+          <div className="dropdown-end dropdown">
+            <label tabIndex={0}>
+              <button
+                // onClick={handleGitHubSignIn}
+                className="btn bg-gradient-to-r from-green-800 to-green-600 font-mono text-xl tracking-wider text-white subpixel-antialiased"
+              >
+                Login
+              </button>
+            </label>
+            <ul
+              tabIndex={0}
+              className="dropdown-content menu rounded-box mt-3 w-52 p-2 shadow"
+            >
+              <li className="bg-gradient-to-r from-black to-indigo-900 font-mono text-xl font-semibold tracking-wider text-white subpixel-antialiased">
+                <a>GitHub</a>
+              </li>
+              <li className="bg-gradient-to-r from-blue-900 to-blue-500 font-mono text-xl font-semibold tracking-wider text-white subpixel-antialiased">
+                <a>LinkedIn</a>
+              </li>
+              <li className="bg-gradient-to-r from-indigo-900 to-pink-900 font-mono text-xl font-semibold tracking-wider text-white subpixel-antialiased">
+                <a>Instagram</a>
+              </li>
+              <li className="bg-gradient-to-r from-yellow-700 to-cyan-700 font-mono text-xl font-semibold tracking-wider text-white subpixel-antialiased">
+                <a>Email</a>
+              </li>
+            </ul>
+          </div>
         </div>
       )}
     </div>
