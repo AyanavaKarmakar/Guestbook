@@ -24,8 +24,8 @@ export const Navbar = (props: Props) => {
   return (
     <div className="navbar bg-gradient-to-r from-indigo-600 bg-auto">
       <div className="navbar-start">
-        <h1 className="ml-1 font-mono text-4xl font-extrabold uppercase tracking-wider text-white subpixel-antialiased">
-          <span className="bg-gradient-to-r from-violet-100 to-cyan-200 bg-clip-text text-transparent">
+        <h1 className="ml-1 text-4xl font-bold uppercase tracking-wider text-white subpixel-antialiased">
+          <span className="bg-gradient-to-r from-violet-100 to-cyan-300 bg-clip-text text-transparent">
             Guestbook
           </span>
         </h1>
