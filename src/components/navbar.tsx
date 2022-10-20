@@ -106,7 +106,17 @@ export const Navbar = (props: Props) => {
                 </motion.div>
               </a>
             </button>
-            <Modal />
+            <motion.div
+              initial={{ scale: 0.0 }}
+              animate={{ scale: 1.0 }}
+              transition={{
+                type: "spring",
+                stiffness: 260,
+                damping: 20,
+              }}
+            >
+              <Modal />
+            </motion.div>
             {userImage !== null && userImage !== undefined && (
               <div className="dropdown-end dropdown">
                 <label tabIndex={0} className="avatar btn btn-ghost btn-circle">
