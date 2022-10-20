@@ -1,7 +1,7 @@
 <h1 align="center">Welcome to Guestbook</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-0.1.0-blue.svg?cacheSeconds=2592000" />
-  <a href="https://github.com/AyanavaKarmakar/Guestbook#readme" target="_blank">
+  <a href="https://ayanavakarmakar.github.io/Guestbook/" target="_blank">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
   </a>
   <a href="https://github.com/AyanavaKarmakar/Guestbook/graphs/commit-activity" target="_blank">
@@ -12,6 +12,20 @@
 > Custom Guestbook built using the T3 Stack
 
 ### [Homepage](https://ayanava-karmakar-guestbook.vercel.app/)
+
+## Tech Stack
+
+- Next.js
+- NextAuth
+- TypeScript
+- tRPC
+- TailwindCSS + daisyUI
+- Prisma
+- postgreSQL
+- zod
+- zustand
+- Railway
+- Vercel
 
 ## Install
 
