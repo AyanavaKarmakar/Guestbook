@@ -1,11 +1,25 @@
+import { TextIcon } from "../utils/icons";
+import { useMobileDeviceStore } from "../utils/store";
+
 export const Modal = () => {
+  const isMobileDevice = useMobileDeviceStore((state) => state.isMobileDevice);
+
   return (
     <>
-      <label htmlFor="my-modal-3" className="modal-button">
-        <div className="btn mr-3 bg-gradient-to-r from-indigo-900 via-purple-900 to-pink-900 font-mono text-lg tracking-wider text-white subpixel-antialiased">
-          Add Message
-        </div>
-      </label>
+      {isMobileDevice === true ? (
+        <label htmlFor="my-modal-3" className="modal-button">
+          <div className="btn mr-2 bg-gradient-to-r from-indigo-900 via-purple-900 to-pink-900 font-mono text-lg tracking-wider text-white subpixel-antialiased">
+            <TextIcon />
+          </div>
+        </label>
+      ) : (
+        <label htmlFor="my-modal-3" className="modal-button">
+          <div className="btn mr-3 bg-gradient-to-r from-indigo-900 via-purple-900 to-pink-900 font-mono text-lg tracking-wider text-white subpixel-antialiased">
+            Add Message
+          </div>
+          
+        </label>
+      )}
 
       <input type="checkbox" id="my-modal-3" className="modal-toggle" />
       <div className="modal">
