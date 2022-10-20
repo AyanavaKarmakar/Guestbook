@@ -17,7 +17,6 @@ export const Modal = () => {
           <div className="btn mr-3 bg-gradient-to-r from-indigo-900 via-purple-900 to-pink-900 font-mono text-lg tracking-wider text-white subpixel-antialiased">
             Add Message
           </div>
-          
         </label>
       )}
 
