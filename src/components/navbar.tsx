@@ -1,6 +1,7 @@
 import { Session } from "next-auth";
 import { signIn, signOut } from "next-auth/react";
 import Image from "next/image";
+import { InfoIcon } from "../utils/icons";
 import { useMobileDeviceStore } from "../utils/store";
 import { Modal } from "./modal";
 
@@ -73,6 +74,9 @@ export const Navbar = (props: Props) => {
         </>
       ) : (
         <div className="navbar-end">
+          <button className="btn mr-1 bg-gradient-to-r from-sky-800 to-sky-600">
+            <InfoIcon />
+          </button>
           <button
             onClick={handleGitHubSignIn}
             className="btn bg-gradient-to-r from-green-800 to-green-600 font-mono text-xl tracking-wider text-white subpixel-antialiased"
