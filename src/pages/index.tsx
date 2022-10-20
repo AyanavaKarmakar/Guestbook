@@ -41,7 +41,7 @@ const Home: NextPage = (props: Props) => {
 
   return (
     <>
-      <header>
+      <header className="sticky top-0 z-50">
         <Navbar
           session={session}
           userName={session?.user?.name}
@@ -51,10 +51,10 @@ const Home: NextPage = (props: Props) => {
           <Alert session={session} />
         </div>
       </header>
-      <main className="flex flex-col items-center">
+      <main className="relative flex flex-col items-center">
         <div className="pt-10">
           <div>
-            <div className="pt-10">
+            <div className="mb-5 pt-10">
               <Messages />
             </div>
           </div>
