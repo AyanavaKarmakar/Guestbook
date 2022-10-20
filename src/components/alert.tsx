@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { Session } from "next-auth";
 import { WarningIcon } from "../utils/icons";
 
@@ -9,7 +10,15 @@ export const Alert = (props: Props) => {
   const { session } = props;
 
   return (
-    <>
+    <motion.div
+      initial={{ scale: 0.5 }}
+      animate={{ scale: 1.0 }}
+      transition={{
+        type: "spring",
+        stiffness: 260,
+        damping: 20,
+      }}
+    >
       {!session && (
         <div className="alert rounded-3xl bg-gradient-to-r from-red-900 to-yellow-900">
           <div>
@@ -20,6 +29,6 @@ export const Alert = (props: Props) => {
           </div>
         </div>
       )}
-    </>
+    </motion.div>
   );
 };

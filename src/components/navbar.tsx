@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { Session } from "next-auth";
 import { signIn, signOut } from "next-auth/react";
 import Image from "next/image";
@@ -36,17 +37,37 @@ export const Navbar = (props: Props) => {
     <div className="navbar bg-gradient-to-r from-indigo-600 bg-auto">
       <div className="navbar-start">
         {isMobileDevice === true ? (
-          <h1 className="ml-1 text-3xl font-bold uppercase tracking-widest text-white subpixel-antialiased">
-            <span className="bg-gradient-to-r from-violet-100 to-cyan-300 bg-clip-text text-transparent">
-              Guestbook
-            </span>
-          </h1>
+          <motion.div
+            initial={{ scale: 0.0 }}
+            animate={{ scale: 1.0 }}
+            transition={{
+              type: "spring",
+              stiffness: 260,
+              damping: 20,
+            }}
+          >
+            <h1 className="ml-1 text-3xl font-bold uppercase tracking-widest text-white subpixel-antialiased">
+              <span className="bg-gradient-to-r from-violet-100 to-cyan-300 bg-clip-text text-transparent">
+                Guestbook
+              </span>
+            </h1>
+          </motion.div>
         ) : (
-          <h1 className="ml-1 text-4xl font-bold uppercase tracking-widest text-white subpixel-antialiased">
-            <span className="bg-gradient-to-r from-violet-100 to-cyan-300 bg-clip-text text-transparent">
-              Guestbook
-            </span>
-          </h1>
+          <motion.div
+            initial={{ scale: 0.0 }}
+            animate={{ scale: 1.0 }}
+            transition={{
+              type: "spring",
+              stiffness: 260,
+              damping: 20,
+            }}
+          >
+            <h1 className="ml-1 text-4xl font-bold uppercase tracking-widest text-white subpixel-antialiased">
+              <span className="bg-gradient-to-r from-violet-100 to-cyan-300 bg-clip-text text-transparent">
+                Guestbook
+              </span>
+            </h1>
+          </motion.div>
         )}
       </div>
       {session ? (
@@ -72,10 +93,30 @@ export const Navbar = (props: Props) => {
                 target="_blank"
                 rel="noreferrer"
               >
-                <InfoIcon />
+                <motion.div
+                  initial={{ scale: 0.0 }}
+                  animate={{ scale: 1.0 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 260,
+                    damping: 20,
+                  }}
+                >
+                  <InfoIcon />
+                </motion.div>
               </a>
             </button>
-            <Modal />
+            <motion.div
+              initial={{ scale: 0.0 }}
+              animate={{ scale: 1.0 }}
+              transition={{
+                type: "spring",
+                stiffness: 260,
+                damping: 20,
+              }}
+            >
+              <Modal />
+            </motion.div>
             {userImage !== null && userImage !== undefined && (
               <div className="dropdown-end dropdown">
                 <label tabIndex={0} className="avatar btn btn-ghost btn-circle">
@@ -113,15 +154,35 @@ export const Navbar = (props: Props) => {
               target="_blank"
               rel="noreferrer"
             >
-              <InfoIcon />
+              <motion.div
+                initial={{ scale: 0.0 }}
+                animate={{ scale: 1.0 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 260,
+                  damping: 20,
+                }}
+              >
+                <InfoIcon />
+              </motion.div>
             </a>
           </button>
           <div className="dropdown-end dropdown">
-            <label tabIndex={0}>
-              <button className="btn bg-gradient-to-r from-green-800 to-green-600 font-mono text-xl tracking-widest text-white subpixel-antialiased">
-                Login
-              </button>
-            </label>
+            <motion.div
+              initial={{ scale: 0.0 }}
+              animate={{ scale: 1.0 }}
+              transition={{
+                type: "spring",
+                stiffness: 260,
+                damping: 20,
+              }}
+            >
+              <label tabIndex={0}>
+                <button className="btn bg-gradient-to-r from-green-800 to-green-600 font-mono text-xl tracking-widest text-white subpixel-antialiased">
+                  Login
+                </button>
+              </label>
+            </motion.div>
             <ul
               tabIndex={0}
               className="dropdown-content menu rounded-box mt-3 w-52 p-2 shadow"
@@ -132,7 +193,7 @@ export const Navbar = (props: Props) => {
               <li className="bg-gradient-to-r from-red-900 to-red-700 font-mono text-xl font-semibold tracking-widest text-white subpixel-antialiased">
                 <a onClick={handleRedditSignIn}>Reddit</a>
               </li>
-              <li>
+              <li className="bg-gradient-to-r from-green-900 to-cyan-700 font-mono text-xl font-semibold tracking-widest text-white subpixel-antialiased">
                 <a onClick={handleEmailSignIn}>Email</a>
               </li>
             </ul>
