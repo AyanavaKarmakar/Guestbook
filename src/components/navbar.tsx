@@ -8,11 +8,12 @@ import { Modal } from "./modal";
 interface Props {
   userName?: string | null;
   userImage?: string | null;
+  userEmail?: string | null;
   session: Session | null;
 }
 
 export const Navbar = (props: Props) => {
-  const { userName, userImage, session } = props;
+  const { userName, userImage, userEmail, session } = props;
   const isMobileDevice = useMobileDeviceStore((state) => state.isMobileDevice);
 
   function handleGitHubSignIn() {
@@ -21,6 +22,10 @@ export const Navbar = (props: Props) => {
 
   function handleRedditSignIn() {
     signIn("reddit");
+  }
+
+  function handleEmailSignIn() {
+    signIn("email");
   }
 
   function handleSignOut() {
@@ -49,7 +54,7 @@ export const Navbar = (props: Props) => {
           {isMobileDevice !== true && (
             <div className="navbar-center">
               <h2 className="font-mono text-xl font-semibold tracking-widest text-white subpixel-antialiased">
-                Hi, {userName}!
+                Hi, {userName !== null ? userName : userEmail}!
               </h2>
             </div>
           )}
@@ -67,7 +72,7 @@ export const Navbar = (props: Props) => {
             <Modal />
             {userImage !== null && userImage !== undefined && (
               <div className="dropdown-end dropdown">
-                <label tabIndex={0} className="avatar btn btn-circle btn-ghost">
+                <label tabIndex={0} className="avatar btn btn-ghost btn-circle">
                   <div className="w-10 rounded-full">
                     <Image
                       src={userImage}
@@ -120,6 +125,9 @@ export const Navbar = (props: Props) => {
               </li>
               <li className="bg-gradient-to-r from-red-900 to-red-700 font-mono text-xl font-semibold tracking-widest text-white subpixel-antialiased">
                 <a onClick={handleRedditSignIn}>Reddit</a>
+              </li>
+              <li>
+                <a onClick={handleEmailSignIn}>Email</a>
               </li>
             </ul>
           </div>
