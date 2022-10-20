@@ -93,7 +93,17 @@ export const Navbar = (props: Props) => {
                 target="_blank"
                 rel="noreferrer"
               >
-                <InfoIcon />
+                <motion.div
+                  initial={{ scale: 0.0 }}
+                  animate={{ scale: 1.0 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 260,
+                    damping: 20,
+                  }}
+                >
+                  <InfoIcon />
+                </motion.div>
               </a>
             </button>
             <Modal />
@@ -134,7 +144,17 @@ export const Navbar = (props: Props) => {
               target="_blank"
               rel="noreferrer"
             >
-              <InfoIcon />
+              <motion.div
+                initial={{ scale: 0.0 }}
+                animate={{ scale: 1.0 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 260,
+                  damping: 20,
+                }}
+              >
+                <InfoIcon />
+              </motion.div>
             </a>
           </button>
           <div className="dropdown-end dropdown">
