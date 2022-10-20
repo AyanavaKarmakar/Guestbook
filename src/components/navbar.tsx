@@ -117,7 +117,7 @@ export const Navbar = (props: Props) => {
                 <a onClick={handleGitHubSignIn}>GitHub</a>
               </li>
               <li className="bg-gradient-to-r from-yellow-700 to-cyan-700 font-mono text-xl font-semibold tracking-widest text-white subpixel-antialiased">
-                <a>Email</a>
+                <a>Coming Soon...</a>
               </li>
             </ul>
           </div>
