@@ -41,8 +41,11 @@ export const Navbar = (props: Props) => {
           )}
           {userImage !== null && userImage !== undefined && (
             <div className="navbar-end">
+              <div className="btn mr-3 bg-gradient-to-r from-indigo-900 via-purple-900 to-pink-900 font-mono text-lg tracking-wider text-white subpixel-antialiased">
+                Add Message
+              </div>
               <div className="dropdown-end dropdown">
-                <label tabIndex={0} className="avatar btn btn-ghost btn-circle">
+                <label tabIndex={0} className="avatar btn btn-circle btn-ghost">
                   <div className="w-10 rounded-full">
                     <Image src={userImage} alt="avatar" layout="fill" />
                   </div>
@@ -51,7 +54,7 @@ export const Navbar = (props: Props) => {
                   tabIndex={0}
                   className="dropdown-content menu rounded-box menu-compact mt-3 w-52 p-2 shadow"
                 >
-                  <li className="bg-error bg-gradient-to-r from-red-900 text-white">
+                  <li className="bg-error bg-gradient-to-r from-red-800 to-red-600 text-white">
                     <a
                       className="btn btn-ghost font-mono text-xl tracking-wider subpixel-antialiased"
                       onClick={handleSignOut}
@@ -68,7 +71,7 @@ export const Navbar = (props: Props) => {
         <div className="navbar-end">
           <button
             onClick={handleGitHubSignIn}
-            className="btn btn-outline btn-success font-mono text-xl tracking-wider subpixel-antialiased"
+            className="btn bg-gradient-to-r from-green-800 to-green-600 font-mono text-xl tracking-wider text-white subpixel-antialiased"
           >
             Login
           </button>
