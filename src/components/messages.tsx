@@ -5,9 +5,18 @@ export const Messages = () => {
 
   if (isLoading === true) {
     return (
-      <div className="font-mono text-xl font-semibold tracking-wider text-white subpixel-antialiased">
-        Fetching Messages...
-      </div>
+      <>
+        <article className="prose">
+          <h2 className="text-center text-5xl font-extrabold uppercase text-white">
+            <span className="bg-gradient-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent">
+              Guest Logs
+            </span>
+          </h2>
+        </article>
+        <div className="mt-10 text-center font-mono text-xl font-semibold tracking-wider text-white subpixel-antialiased">
+          Fetching Messages...
+        </div>
+      </>
     );
   }
 

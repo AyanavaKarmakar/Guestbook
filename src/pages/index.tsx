@@ -88,11 +88,9 @@ const Home: NextPage = (props: Props) => {
           userName={session?.user?.name}
           userImage={session?.user?.image}
         />
-        {!session && (
-          <div className="mt-2 mb-2 ml-1 mr-1">
-            <Alert />
-          </div>
-        )}
+        <div className="mt-2 mb-2 ml-1 mr-1">
+          <Alert session={session} />
+        </div>
       </header>
       <main className="flex flex-col items-center">
         <div className="pt-10">
