@@ -47,7 +47,12 @@ export const Navbar = (props: Props) => {
               <div className="dropdown-end dropdown">
                 <label tabIndex={0} className="avatar btn btn-circle btn-ghost">
                   <div className="w-10 rounded-full">
-                    <Image src={userImage} alt="avatar" layout="fill" />
+                    <Image
+                      src={userImage}
+                      className="mask mask-squircle"
+                      alt="avatar"
+                      layout="fill"
+                    />
                   </div>
                 </label>
                 <ul
