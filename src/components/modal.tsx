@@ -7,24 +7,24 @@ export const Modal = () => {
   return (
     <>
       {isMobileDevice === true ? (
-        <label htmlFor="my-modal-3" className="modal-button">
+        <label htmlFor="add-message-modal" className="modal-button">
           <div className="btn mr-2 bg-gradient-to-r from-indigo-900 via-purple-900 to-pink-900 font-mono text-lg tracking-wider text-white subpixel-antialiased">
             <TextIcon />
           </div>
         </label>
       ) : (
-        <label htmlFor="my-modal-3" className="modal-button">
+        <label htmlFor="add-message-modal" className="modal-button">
           <div className="btn mr-3 bg-gradient-to-r from-indigo-900 via-purple-900 to-pink-900 font-mono text-lg tracking-wider text-white subpixel-antialiased">
             Add Message
           </div>
         </label>
       )}
 
-      <input type="checkbox" id="my-modal-3" className="modal-toggle" />
+      <input type="checkbox" id="add-message-modal" className="modal-toggle" />
       <div className="modal">
         <div className="modal-box relative">
           <label
-            htmlFor="my-modal-3"
+            htmlFor="add-message-modal"
             className="btn btn-circle btn-sm absolute right-2 top-2"
           >
             ✕
