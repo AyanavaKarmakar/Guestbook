@@ -1,8 +1,50 @@
+import { useSession } from "next-auth/react";
+import { ChangeEvent, useState } from "react";
 import { CancelIcon, TextIcon } from "../utils/icons";
 import { useMobileDeviceStore } from "../utils/store";
+import { trpc } from "../utils/trpc";
 
 export const Modal = () => {
   const isMobileDevice = useMobileDeviceStore((state) => state.isMobileDevice);
+  const [message, setMessage] = useState("");
+  const { data: session } = useSession();
+  const ctx = trpc.useContext();
+  const postMessage = trpc.guestbook.postMessage.useMutation({
+    /**
+     * ? Configure optimistic UI update
+     * @see https://trpc.io/docs/v10/useContext#helpers
+     */
+    onMutate: () => {
+      ctx.guestbook.getAll.cancel();
+      const optimisticUpdate = ctx.guestbook.getAll.getData();
+
+      if (optimisticUpdate) {
+        ctx.guestbook.getAll.setData(optimisticUpdate);
+      }
+    },
+
+    /**
+     * @see https://trpc.io/docs/v10/useContext#invalidating-a-single-query
+     */
+    onSettled: () => {
+      ctx.guestbook.getAll.invalidate();
+    },
+  });
+
+  function handleOnChange(event: ChangeEvent<HTMLInputElement>) {
+    setMessage(event.target.value);
+  }
+
+  function handleSubmit() {
+    if (session?.user !== undefined) {
+      postMessage.mutate({
+        name: session?.user.name as string,
+        message,
+      });
+    }
+
+    setMessage("");
+  }
 
   return (
     <>
@@ -35,9 +77,16 @@ export const Modal = () => {
           <input
             type="text"
             placeholder="Type here"
+            minLength={3}
+            maxLength={100}
             className="input input-primary input-lg w-full max-w-xs"
+            value={message}
+            onChange={(event) => handleOnChange(event)}
           />
-          <div className="btn mt-5 ml-3 bg-gradient-to-r from-indigo-900 via-purple-900 to-pink-900 font-mono text-lg tracking-widest text-white subpixel-antialiased">
+          <div
+            onClick={handleSubmit}
+            className="btn mt-5 ml-3 bg-gradient-to-r from-indigo-900 via-purple-900 to-pink-900 font-mono text-lg tracking-widest text-white subpixel-antialiased"
+          >
             <span>Submit</span>
           </div>
         </div>

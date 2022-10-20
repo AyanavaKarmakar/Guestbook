@@ -41,7 +41,7 @@ export const Navbar = (props: Props) => {
             </div>
           )}
           {userImage !== null && userImage !== undefined && (
-            <div className="navbar-end">
+            <div className="navbar-end mr-3">
               <Modal />
               <div className="dropdown-end dropdown">
                 <label tabIndex={0} className="avatar btn btn-circle btn-ghost">
