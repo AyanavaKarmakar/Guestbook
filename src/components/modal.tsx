@@ -36,9 +36,14 @@ export const Modal = () => {
   }
 
   function handleSubmit() {
-    if (session?.user !== undefined) {
+    if (session?.user !== undefined && session?.user.name !== null) {
       postMessage.mutate({
         name: session?.user.name as string,
+        message,
+      });
+    } else if (session?.user !== undefined && session?.user.name === null) {
+      postMessage.mutate({
+        name: session?.user.email as string,
         message,
       });
     }

@@ -46,6 +46,7 @@ const Home: NextPage = (props: Props) => {
           session={session}
           userName={session?.user?.name}
           userImage={session?.user?.image}
+          userEmail={session?.user?.email}
         />
         <div className="mt-2 mb-2 ml-1 mr-1">
           <Alert session={session} />
