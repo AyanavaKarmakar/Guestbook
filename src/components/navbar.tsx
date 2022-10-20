@@ -2,6 +2,7 @@ import { Session } from "next-auth";
 import { signIn, signOut } from "next-auth/react";
 import Image from "next/image";
 import { useMobileDeviceStore } from "../utils/store";
+import { Modal } from "./modal";
 
 interface Props {
   userName?: string | null;
@@ -41,9 +42,7 @@ export const Navbar = (props: Props) => {
           )}
           {userImage !== null && userImage !== undefined && (
             <div className="navbar-end">
-              <div className="btn mr-3 bg-gradient-to-r from-indigo-900 via-purple-900 to-pink-900 font-mono text-lg tracking-wider text-white subpixel-antialiased">
-                Add Message
-              </div>
+              <Modal />
               <div className="dropdown-end dropdown">
                 <label tabIndex={0} className="avatar btn btn-circle btn-ghost">
                   <div className="w-10 rounded-full">
