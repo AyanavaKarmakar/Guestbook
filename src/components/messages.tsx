@@ -33,15 +33,23 @@ export const Messages = () => {
       </motion.div>
       {messages?.map((msg, index) => {
         return (
-          <div
+          <motion.div
             key={index}
-            className="card mt-5 w-96 bg-gradient-to-r from-indigo-900 to-cyan-900 text-white"
+            initial={{ scale: 0.0 }}
+            animate={{ scale: 1.0 }}
+            transition={{
+              type: "spring",
+              stiffness: 260,
+              damping: 20,
+            }}
           >
-            <div className="card-body text-left font-mono tracking-wider subpixel-antialiased">
-              <h2 className="card-title">{msg.message}</h2>
-              <p>— {msg.name}</p>
+            <div className="card mt-5 w-96 bg-gradient-to-r from-indigo-900 to-cyan-900 text-white">
+              <div className="card-body text-left font-mono tracking-wider subpixel-antialiased">
+                <h2 className="card-title">{msg.message}</h2>
+                <p>— {msg.name}</p>
+              </div>
             </div>
-          </div>
+          </motion.div>
         );
       })}
     </div>
