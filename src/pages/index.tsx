@@ -37,7 +37,7 @@ const Home: NextPage = (props: Props) => {
       <main className="flex h-screen items-center justify-center font-mono text-3xl font-semibold tracking-wider text-white subpixel-antialiased">
         Loading
         <TypeAnimation
-          sequence={[".", 125, "..", 250, "...", 500]}
+          sequence={[" ", 62, ".", 125, "..", 250, "...", 500]}
           wrapper="div"
           cursor={false}
           repeat={Infinity}

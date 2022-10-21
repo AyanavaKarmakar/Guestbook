@@ -10,7 +10,7 @@ export const Messages = () => {
       <div className="mt-10 text-center font-mono text-xl font-semibold tracking-wider text-white subpixel-antialiased">
         Fetching Messages
         <TypeAnimation
-          sequence={[".", 125, "..", 250, "...", 500]}
+          sequence={[" ", 62, ".", 125, "..", 250, "...", 500]}
           wrapper="div"
           cursor={false}
           repeat={Infinity}
