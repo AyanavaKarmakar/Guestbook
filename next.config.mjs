@@ -25,7 +25,6 @@ export default defineNextConfig({
     domains: [
       'user-images.githubusercontent.com',
       'avatars.githubusercontent.com',
-      'placeimg.com'
     ]
   }
 });
