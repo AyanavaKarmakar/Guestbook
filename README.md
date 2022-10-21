@@ -25,6 +25,7 @@
 - postgreSQL
 - zod
 - zustand
+- Twilio Soundgrid
 - Railway
 - Vercel
 
