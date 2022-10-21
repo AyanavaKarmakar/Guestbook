@@ -25,6 +25,7 @@ export default defineNextConfig({
     domains: [
       'user-images.githubusercontent.com',
       'avatars.githubusercontent.com',
+      'ayanava-karmakar.imgix.net'
     ]
   }
 });
