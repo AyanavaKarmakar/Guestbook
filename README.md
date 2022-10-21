@@ -15,19 +15,17 @@
 
 ## Tech Stack
 
-- Next.js
-- NextAuth
-- TypeScript
-- tRPC
-- TailwindCSS + daisyUI
-- framer-motion
-- Prisma
-- postgreSQL
-- zod
-- zustand
-- Twilio Soundgrid
-- Railway
-- Vercel
+- Next.js as Framework
+- NextAuth for Authentication (GitHub, Reddit, and Email)
+- tRPC for fully typesafe APIs
+- TailwindCSS + daisyUI for UI
+- framer-motion for animation
+- Prisma as ORM
+- PostgreSQL via Railway
+- Zod for TypeScript-first schema validation with static type inference
+- Zustand for State Management
+- Twilio Soundgrid for SMTP server
+- Deployed via Vercel
 
 ## Install
 
