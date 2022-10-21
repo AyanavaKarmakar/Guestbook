@@ -19,6 +19,7 @@
 - NextAuth for Authentication (GitHub, Reddit, and Email)
 - tRPC for fully typesafe APIs
 - TailwindCSS + daisyUI for UI
+- Imgix for images
 - framer-motion for animation
 - Prisma as ORM
 - PostgreSQL via Railway
