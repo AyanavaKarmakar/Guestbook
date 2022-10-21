@@ -36,39 +36,25 @@ export const Navbar = (props: Props) => {
   return (
     <div className="navbar bg-gradient-to-r from-indigo-600 bg-auto">
       <div className="navbar-start">
-        {isMobileDevice === true ? (
-          <motion.div
-            initial={{ scale: 0.0 }}
-            animate={{ scale: 1.0 }}
-            transition={{
-              type: "spring",
-              stiffness: 260,
-              damping: 20,
-            }}
+        <motion.div
+          initial={{ scale: 0.0 }}
+          animate={{ scale: 1.0 }}
+          transition={{
+            type: "spring",
+            stiffness: 260,
+            damping: 20,
+          }}
+        >
+          <h1
+            className={`ml-1 ${
+              isMobileDevice === true ? "text-3xl" : "text-4xl"
+            } font-bold uppercase tracking-widest text-white subpixel-antialiased`}
           >
-            <h1 className="ml-1 text-3xl font-bold uppercase tracking-widest text-white subpixel-antialiased">
-              <span className="bg-gradient-to-r from-violet-100 to-cyan-300 bg-clip-text text-transparent">
-                Guestbook
-              </span>
-            </h1>
-          </motion.div>
-        ) : (
-          <motion.div
-            initial={{ scale: 0.0 }}
-            animate={{ scale: 1.0 }}
-            transition={{
-              type: "spring",
-              stiffness: 260,
-              damping: 20,
-            }}
-          >
-            <h1 className="ml-1 text-4xl font-bold uppercase tracking-widest text-white subpixel-antialiased">
-              <span className="bg-gradient-to-r from-violet-100 to-cyan-300 bg-clip-text text-transparent">
-                Guestbook
-              </span>
-            </h1>
-          </motion.div>
-        )}
+            <span className="bg-gradient-to-r from-violet-100 to-cyan-300 bg-clip-text text-transparent">
+              Guestbook
+            </span>
+          </h1>
+        </motion.div>
       </div>
       {session ? (
         <>

@@ -62,19 +62,17 @@ export const Modal = () => {
 
   return (
     <>
-      {isMobileDevice === true ? (
-        <label htmlFor="add-message-modal" className="modal-button">
-          <div className="btn mr-2 bg-gradient-to-r from-indigo-900 via-purple-900 to-pink-900 font-mono text-lg tracking-wider text-white subpixel-antialiased">
-            <TextIcon />
-          </div>
-        </label>
-      ) : (
-        <label htmlFor="add-message-modal" className="modal-button">
-          <div className="btn mr-3 bg-gradient-to-r from-indigo-900 via-purple-900 to-pink-900 font-mono text-lg tracking-widest text-white subpixel-antialiased">
-            Add Message
-          </div>
-        </label>
-      )}
+      <label htmlFor="add-message-modal" className="modal-button">
+        <div
+          className={`btn ${
+            isMobileDevice === true
+              ? "mr-2 tracking-wider"
+              : " mr-3 tracking-widest"
+          } bg-gradient-to-r from-indigo-900 via-purple-900 to-pink-900 font-mono text-lg text-white subpixel-antialiased`}
+        >
+          <TextIcon />
+        </div>
+      </label>
 
       <input type="checkbox" id="add-message-modal" className="modal-toggle" />
       <div className="modal modal-bottom sm:modal-middle">
