@@ -70,7 +70,7 @@ export const Modal = () => {
               : " mr-3 tracking-widest"
           } bg-gradient-to-r from-indigo-900 via-purple-900 to-pink-900 font-mono text-lg text-white subpixel-antialiased`}
         >
-          <TextIcon />
+          {isMobileDevice === true ? <TextIcon /> : "Add Message"}
         </div>
       </label>
 
