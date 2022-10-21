@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Session } from "next-auth";
 import { signIn, signOut } from "next-auth/react";
 import Image from "next/image";
-import { InfoIcon, UserIcon } from "../utils/icons";
+import { InfoIcon } from "../utils/icons";
 import { useMobileDeviceStore } from "../utils/store";
 import { Modal } from "./modal";
 
@@ -14,6 +14,8 @@ interface Props {
 }
 
 export const Navbar = (props: Props) => {
+  const PLACEHOLDER_IMAGE =
+    "https://ayanava-karmakar.imgix.net/https%3A%2F%2Fraw.githubusercontent.com%2FAyanavaKarmakar%2Fimgix-source-assets%2Fmain%2FsiteIcon.png?s=b56a16a7886aaf99f639de88c3fcdc0b";
   const { userName, userImage, userEmail, session } = props;
   const isMobileDevice = useMobileDeviceStore((state) => state.isMobileDevice);
 
@@ -106,16 +108,16 @@ export const Navbar = (props: Props) => {
             <div className="dropdown-end dropdown">
               <label tabIndex={0} className="avatar btn btn-ghost btn-circle">
                 <div className="w-10 rounded-full">
-                  {userImage !== null && userImage !== undefined ? (
-                    <Image
-                      src={userImage}
-                      className="mask mask-squircle"
-                      alt="avatar"
-                      layout="fill"
-                    />
-                  ) : (
-                    <UserIcon />
-                  )}
+                  <Image
+                    src={`${
+                      userImage !== null && userImage !== undefined
+                        ? userImage
+                        : PLACEHOLDER_IMAGE
+                    }`}
+                    className="mask mask-squircle"
+                    alt="avatar"
+                    layout="fill"
+                  />
                 </div>
               </label>
               <ul
