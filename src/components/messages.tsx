@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { trpc } from "../utils/trpc";
+import { TypeAnimation } from "react-type-animation";
 
 export const Messages = () => {
   const { data: messages, isLoading } = trpc.guestbook.getAll.useQuery();
@@ -7,7 +8,13 @@ export const Messages = () => {
   if (isLoading === true) {
     return (
       <div className="mt-10 text-center font-mono text-xl font-semibold tracking-wider text-white subpixel-antialiased">
-        Fetching Messages...
+        Fetching Messages
+        <TypeAnimation
+          sequence={[".", 125, "..", 250, "...", 500]}
+          wrapper="div"
+          cursor={false}
+          repeat={Infinity}
+        />
       </div>
     );
   }
