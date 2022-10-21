@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { Alert, Messages, Navbar } from "../components";
 import { z } from "zod";
 import { useMobileDeviceStore } from "../utils/store";
+import { TypeAnimation } from "react-type-animation";
 
 const PropsValidator = z.object({
   userAgent: z.string().optional(),
@@ -34,7 +35,13 @@ const Home: NextPage = (props: Props) => {
   if (status === "loading") {
     return (
       <main className="flex h-screen items-center justify-center font-mono text-3xl font-semibold tracking-wider text-white subpixel-antialiased">
-        Loading...
+        Loading
+        <TypeAnimation
+          sequence={[" ", 62, ".", 125, "..", 250, "...", 500]}
+          wrapper="div"
+          cursor={false}
+          repeat={Infinity}
+        />
       </main>
     );
   }

@@ -2072,6 +2072,11 @@ react-ssr-prepass@^1.5.0:
   resolved "https://registry.yarnpkg.com/react-ssr-prepass/-/react-ssr-prepass-1.5.0.tgz#bc4ca7fcb52365e6aea11cc254a3d1bdcbd030c5"
   integrity sha512-yFNHrlVEReVYKsLI5lF05tZoHveA5pGzjFbFJY/3pOqqjGOmMmqx83N4hIjN2n6E1AOa+eQEUxs3CgRnPmT0RQ==
 
+react-type-animation@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/react-type-animation/-/react-type-animation-2.1.1.tgz#0575714ed734d132019c2ec4325e6364eea342b1"
+  integrity sha512-leXq9tZLsfbQWi+1PvsSc2XZYv9CqRrChvuv81M0UPECggBEQgplQzTO9LzgjYNPdnhf4UMeEtZMI4G1qPpuwA==
+
 react@18.2.0:
   version "18.2.0"
   resolved "https://registry.yarnpkg.com/react/-/react-18.2.0.tgz#555bd98592883255fa00de14f1151a917b5d77d5"
