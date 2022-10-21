@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Session } from "next-auth";
 import { signIn, signOut } from "next-auth/react";
 import Image from "next/image";
-import { InfoIcon } from "../utils/icons";
+import { InfoIcon, UserIcon } from "../utils/icons";
 import { useMobileDeviceStore } from "../utils/store";
 import { Modal } from "./modal";
 
@@ -103,33 +103,35 @@ export const Navbar = (props: Props) => {
             >
               <Modal />
             </motion.div>
-            {userImage !== null && userImage !== undefined && (
-              <div className="dropdown-end dropdown">
-                <label tabIndex={0} className="avatar btn btn-ghost btn-circle">
-                  <div className="w-10 rounded-full">
+            <div className="dropdown-end dropdown">
+              <label tabIndex={0} className="avatar btn btn-ghost btn-circle">
+                <div className="w-10 rounded-full">
+                  {userImage !== null && userImage !== undefined ? (
                     <Image
                       src={userImage}
                       className="mask mask-squircle"
                       alt="avatar"
                       layout="fill"
                     />
-                  </div>
-                </label>
-                <ul
-                  tabIndex={0}
-                  className="dropdown-content menu rounded-box menu-compact mt-3 w-52 p-2 shadow"
-                >
-                  <li className="bg-error bg-gradient-to-r from-red-800 to-red-600 text-white">
-                    <a
-                      className="btn btn-ghost font-mono text-xl tracking-widest subpixel-antialiased"
-                      onClick={handleSignOut}
-                    >
-                      Logout
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            )}
+                  ) : (
+                    <UserIcon />
+                  )}
+                </div>
+              </label>
+              <ul
+                tabIndex={0}
+                className="dropdown-content menu rounded-box menu-compact mt-3 w-52 p-2 shadow"
+              >
+                <li className="bg-error bg-gradient-to-r from-red-800 to-red-600 text-white">
+                  <a
+                    className="btn btn-ghost font-mono text-xl tracking-widest subpixel-antialiased"
+                    onClick={handleSignOut}
+                  >
+                    Logout
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </>
       ) : (
