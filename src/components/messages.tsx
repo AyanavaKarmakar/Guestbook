@@ -8,9 +8,17 @@ export const Messages = () => {
   if (isLoading === true) {
     return (
       <div className="mt-10 text-center font-mono text-xl font-semibold tracking-wider text-white subpixel-antialiased">
-        Fetching Messages
         <TypeAnimation
-          sequence={[" ", 62, ".", 125, "..", 250, "...", 500]}
+          sequence={[
+            "Fetching Messages",
+            62,
+            "Fetching Messages.",
+            125,
+            "Fetching Messages..",
+            250,
+            "Fetching Messages...",
+            500,
+          ]}
           wrapper="div"
           cursor={false}
           repeat={Infinity}
