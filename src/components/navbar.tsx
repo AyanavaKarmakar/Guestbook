@@ -19,19 +19,19 @@ export const Navbar = (props: Props) => {
   const { userName, userImage, userEmail, session } = props;
   const isMobileDevice = useMobileDeviceStore((state) => state.isMobileDevice);
 
-  function handleGitHubSignIn() {
+  function handleGitHubSignIn(): void {
     signIn("github");
   }
 
-  function handleRedditSignIn() {
+  function handleRedditSignIn(): void {
     signIn("reddit");
   }
 
-  function handleEmailSignIn() {
+  function handleEmailSignIn(): void {
     signIn("email");
   }
 
-  function handleSignOut() {
+  function handleSignOut(): void {
     signOut();
   }
 

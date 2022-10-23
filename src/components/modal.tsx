@@ -31,11 +31,11 @@ export const Modal = () => {
     },
   });
 
-  function handleOnChange(event: ChangeEvent<HTMLInputElement>) {
+  function handleOnChange(event: ChangeEvent<HTMLInputElement>): void {
     setMessage(event.target.value);
   }
 
-  function handleSubmit() {
+  function handleSubmit(): void {
     if (session?.user !== undefined) {
       if (session?.user.name !== null) {
         postMessage.mutate({
