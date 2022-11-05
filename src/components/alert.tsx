@@ -22,7 +22,7 @@ export const Alert = (props: Props) => {
       }}
     >
       {!session && (
-        <div className="alert flex items-center justify-center rounded bg-gradient-to-r from-red-900 to-yellow-900">
+        <div className="alert flex items-center justify-center rounded bg-gradient-to-r from-red-700 to-zinc-800">
           <WarningIcon />
           <span
             className={`${
