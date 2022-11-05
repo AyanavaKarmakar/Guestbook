@@ -20,7 +20,7 @@ export const Alert = (props: Props) => {
       }}
     >
       {!session && (
-        <div className="alert mr-5 rounded bg-gradient-to-r from-red-900 to-yellow-900">
+        <div className="alert rounded bg-gradient-to-r from-red-900 to-yellow-900">
           <div>
             <WarningIcon />
             <span className="ml-5 text-lg font-semibold tracking-wider text-white subpixel-antialiased">
