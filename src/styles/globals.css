@@ -5,7 +5,9 @@
 @tailwind utilities;
 
 body {
+    /*** Removes Scrollbar ***/
     overflow-y: scroll;
+    /*** Removes Scrollbar ***/
     scrollbar-width: none;
     font-family: 'Familjen Grotesk', sans-serif;
 }
