@@ -5,6 +5,8 @@ import Image from "next/image";
 import { InfoIcon } from "../utils/icons";
 import { useMobileDeviceStore } from "../utils/store";
 import { Modal } from "./modal";
+import TextTransition, { presets } from "react-text-transition";
+import { useState, useEffect } from "react";
 
 interface Props {
   userName?: string | null;
@@ -13,11 +15,24 @@ interface Props {
   session: Session | null;
 }
 
+const TEXTS = [" — by Ayanava", " — built using the T3 Stack"];
+const DELAY_MS = 5000;
+
 export const Navbar = (props: Props) => {
   const PLACEHOLDER_IMAGE =
     "https://ayanava-karmakar.imgix.net/https%3A%2F%2Fraw.githubusercontent.com%2FAyanavaKarmakar%2Fimgix-source-assets%2Fmain%2FsiteIcon.png?s=b56a16a7886aaf99f639de88c3fcdc0b";
   const { userName, userImage, userEmail, session } = props;
   const isMobileDevice = useMobileDeviceStore((state) => state.isMobileDevice);
+
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const intervalId = setInterval(
+      () => setIndex((index) => index + 1),
+      DELAY_MS
+    );
+    return () => clearTimeout(intervalId);
+  }, []);
 
   function handleGitHubSignIn(): void {
     signIn("github");
@@ -50,11 +65,20 @@ export const Navbar = (props: Props) => {
           <h1
             className={`ml-1 ${
               isMobileDevice === true ? "text-3xl" : "text-4xl"
-            } font-extrabold uppercase tracking-normal text-white subpixel-antialiased`}
+            } font-extrabold uppercase tracking-normal text-cyan-100 subpixel-antialiased`}
           >
             <span className="bg-gradient-to-r from-violet-100 to-cyan-300 bg-clip-text text-transparent">
-              Guestbook
+              GuestBook{" "}
             </span>
+            {isMobileDevice === false && (
+              <TextTransition
+                springConfig={presets.gentle}
+                direction={"down"}
+                inline
+              >
+                {TEXTS[index % TEXTS.length]}
+              </TextTransition>
+            )}
           </h1>
         </motion.div>
       </div>
