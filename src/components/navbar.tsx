@@ -254,16 +254,22 @@ export const Navbar = (props: Props) => {
             </motion.div>
             <ul
               tabIndex={0}
-              className="dropdown-content menu rounded-box mt-3 w-52 p-2 shadow"
+              className="dropdown-content menu rounded-box mt-3 w-48"
             >
               <li className="bg-gradient-to-r from-black to-indigo-900 text-xl font-semibold tracking-wider text-white subpixel-antialiased hover:motion-safe:animate-pulse">
-                <a onClick={handleGitHubSignIn}>GitHub</a>
+                <a onClick={handleGitHubSignIn}>
+                  <span className="m-auto">GitHub</span>
+                </a>
               </li>
               <li className="bg-gradient-to-r from-red-900 to-red-700 text-xl font-semibold tracking-wider text-white subpixel-antialiased hover:motion-safe:animate-pulse">
-                <a onClick={handleRedditSignIn}>Reddit</a>
+                <a onClick={handleRedditSignIn}>
+                  <span className="m-auto">Reddit</span>
+                </a>
               </li>
               <li className="bg-gradient-to-r from-green-900 to-cyan-700 text-xl font-semibold tracking-wider text-white subpixel-antialiased hover:motion-safe:animate-pulse">
-                <a onClick={handleEmailSignIn}>Email</a>
+                <a onClick={handleEmailSignIn}>
+                  <span className="m-auto">Email</span>
+                </a>
               </li>
             </ul>
           </div>
