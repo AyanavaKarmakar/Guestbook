@@ -154,12 +154,12 @@ export const Navbar = (props: Props) => {
             )}
 
           <div className="navbar-end mr-1">
-            <button className="btn mr-1 bg-gradient-to-r from-sky-800 to-sky-600 hover:motion-safe:animate-pulse">
-              <a
-                href="https://linktree.ayanavakarmakar.software"
-                target="_blank"
-                rel="noreferrer"
-              >
+            <a
+              href="https://linktree.ayanavakarmakar.software"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <button className="btn mr-1 bg-gradient-to-r from-sky-800 to-sky-600 hover:motion-safe:animate-pulse">
                 <motion.div
                   initial={{ scale: 0.0 }}
                   animate={{ scale: 1.0 }}
@@ -171,8 +171,8 @@ export const Navbar = (props: Props) => {
                 >
                   <InfoIcon />
                 </motion.div>
-              </a>
-            </button>
+              </button>
+            </a>
             <motion.div
               initial={{ scale: 0.0 }}
               animate={{ scale: 1.0 }}
@@ -217,12 +217,12 @@ export const Navbar = (props: Props) => {
         </>
       ) : (
         <div className="navbar-end">
-          <button className="btn mr-1 bg-gradient-to-r from-sky-800 to-sky-600 hover:motion-safe:animate-pulse">
-            <a
-              href="https://linktree.ayanavakarmakar.software"
-              target="_blank"
-              rel="noreferrer"
-            >
+          <a
+            href="https://linktree.ayanavakarmakar.software"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <button className="btn mr-1 bg-gradient-to-r from-sky-800 to-sky-600 hover:motion-safe:animate-pulse">
               <motion.div
                 initial={{ scale: 0.0 }}
                 animate={{ scale: 1.0 }}
@@ -234,8 +234,8 @@ export const Navbar = (props: Props) => {
               >
                 <InfoIcon />
               </motion.div>
-            </a>
-          </button>
+            </button>
+          </a>
           <div className="dropdown-end dropdown">
             <motion.div
               initial={{ scale: 0.0 }}
