@@ -21,28 +21,10 @@ interface Props {
  * TODO No idea how to optimize
  * ? Send HELP
  */
-const TEXTS = [
-  " Built By",
-  " Built Using",
-  " Built Using",
-  " Built Using",
-  " Built Using",
-  " Built Using",
-  " Built Using",
-  " Built Using",
-];
-const SUB_TEXTS = [
-  "Ayanava Karmakar",
-  "the T3 Stack",
-  "Next.js",
-  "tRPC",
-  "Tailwind CSS",
-  "TypeScript",
-  "Prisma",
-  "NextAuth.js",
-];
-const DELAY_MS_FOR_TEXT = 3000;
-const DELAY_MS_FOR_SUB_TEXT = 3000;
+const TEXTS = ["Made with 💕"];
+const SUB_TEXTS = ["by Ayanava Karmakar", "using the T3 Stack"];
+const DELAY_MS_FOR_TEXT = 5000;
+const DELAY_MS_FOR_SUB_TEXT = 5000;
 
 export const Navbar = (props: Props) => {
   const PLACEHOLDER_IMAGE =
@@ -119,7 +101,7 @@ export const Navbar = (props: Props) => {
             <>
               {" "}
               <TextTransition
-                springConfig={presets.gentle}
+                springConfig={presets.slow}
                 direction={"down"}
                 inline
               >
