@@ -20,13 +20,11 @@ export const Alert = (props: Props) => {
       }}
     >
       {!session && (
-        <div className="alert rounded bg-gradient-to-r from-red-900 to-yellow-900">
-          <div>
-            <WarningIcon />
-            <span className="ml-5 text-lg font-semibold tracking-wider text-white subpixel-antialiased">
-              You need to login to post a message!
-            </span>
-          </div>
+        <div className="alert flex items-center justify-center rounded bg-gradient-to-r from-red-900 to-yellow-900">
+          <WarningIcon />
+          <span className="text-xl font-bold tracking-widest text-white subpixel-antialiased">
+            You need to login to post a message!
+          </span>
         </div>
       )}
     </motion.div>
