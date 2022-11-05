@@ -104,7 +104,7 @@ export const Navbar = (props: Props) => {
             } font-extrabold uppercase tracking-normal text-cyan-100 subpixel-antialiased`}
           >
             <span className="bg-gradient-to-r from-violet-100 to-cyan-300 bg-clip-text text-transparent">
-              GuestBook{" "}
+              GuestBook
             </span>
           </h1>
         </motion.div>
