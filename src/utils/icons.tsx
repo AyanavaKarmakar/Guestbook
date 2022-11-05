@@ -2,7 +2,7 @@ export const WarningIcon = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className="h-6 w-6 flex-shrink-0 stroke-white"
+      className="h-6 w-6 flex-shrink-0 stroke-white motion-safe:animate-pulse"
       fill="none"
       viewBox="0 0 24 24"
     >
