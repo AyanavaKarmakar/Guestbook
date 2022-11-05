@@ -70,19 +70,19 @@ export const Navbar = (props: Props) => {
     };
   }, []);
 
-  function handleGitHubSignIn(): void {
+  function handleGitHubSignIn() {
     signIn("github");
   }
 
-  function handleRedditSignIn(): void {
+  function handleRedditSignIn() {
     signIn("reddit");
   }
 
-  function handleEmailSignIn(): void {
+  function handleEmailSignIn() {
     signIn("email");
   }
 
-  function handleSignOut(): void {
+  function handleSignOut() {
     signOut();
   }
 
