@@ -75,9 +75,9 @@ export const Navbar = (props: Props) => {
             )}
 
           <div className="navbar-end mr-1">
-            <button className="btn mr-1 bg-gradient-to-r from-sky-800 to-sky-600">
+            <button className="btn mr-1 bg-gradient-to-r from-sky-800 to-sky-600 hover:motion-safe:animate-pulse">
               <a
-                href="https://elfin.vercel.app/"
+                href="https://ayanavakarmakar.github.io/LinkTree/"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -140,7 +140,7 @@ export const Navbar = (props: Props) => {
         <div className="navbar-end">
           <button className="btn mr-1 bg-gradient-to-r from-sky-800 to-sky-600 hover:motion-safe:animate-pulse">
             <a
-              href="https://elfin.vercel.app/"
+              href="https://ayanavakarmakar.github.io/LinkTree/"
               target="_blank"
               rel="noreferrer"
             >
