@@ -50,7 +50,7 @@ export const Navbar = (props: Props) => {
           <h1
             className={`ml-1 ${
               isMobileDevice === true ? "text-3xl" : "text-4xl"
-            } font-bold uppercase tracking-wide text-white subpixel-antialiased`}
+            } font-extrabold uppercase tracking-normal text-white subpixel-antialiased`}
           >
             <span className="bg-gradient-to-r from-violet-100 to-cyan-300 bg-clip-text text-transparent">
               Guestbook
@@ -105,7 +105,7 @@ export const Navbar = (props: Props) => {
             >
               <Modal />
             </motion.div>
-            <div className="dropdown dropdown-end">
+            <div className="dropdown-end dropdown">
               <label tabIndex={0} className="avatar btn btn-ghost btn-circle">
                 <div className="w-10 rounded-full">
                   <Image
