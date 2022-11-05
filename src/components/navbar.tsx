@@ -16,8 +16,33 @@ interface Props {
   status: "authenticated" | "unauthenticated";
 }
 
-const TEXTS = [" — by Ayanava", " — built using the T3 Stack"];
-const DELAY_MS = 3500;
+/**
+ * ! Hotfix
+ * TODO No idea how to optimize
+ * ? Send HELP
+ */
+const TEXTS = [
+  " Built By",
+  " Built Using",
+  " Built Using",
+  " Built Using",
+  " Built Using",
+  " Built Using",
+  " Built Using",
+  " Built Using",
+];
+const SUB_TEXTS = [
+  "Ayanava Karmakar",
+  "the T3 Stack",
+  "Next.js",
+  "tRPC",
+  "Tailwind CSS",
+  "TypeScript",
+  "Prisma",
+  "NextAuth.js",
+];
+const DELAY_MS_FOR_TEXT = 3000;
+const DELAY_MS_FOR_SUB_TEXT = 3000;
 
 export const Navbar = (props: Props) => {
   const PLACEHOLDER_IMAGE =
@@ -25,14 +50,24 @@ export const Navbar = (props: Props) => {
   const { userName, userImage, userEmail, session, status } = props;
   const isMobileDevice = useMobileDeviceStore((state) => state.isMobileDevice);
 
-  const [index, setIndex] = useState(0);
+  const [indexForText, setIndexForText] = useState(0);
+  const [indexForSubText, setIndexForSubText] = useState(0);
 
   useEffect(() => {
-    const intervalId = setInterval(
-      () => setIndex((index) => index + 1),
-      DELAY_MS
+    const intervalIdForText = setInterval(
+      () => setIndexForText((indexForText) => indexForText + 1),
+      DELAY_MS_FOR_TEXT
     );
-    return () => clearTimeout(intervalId);
+
+    const intervalIdForSubText = setInterval(
+      () => setIndexForSubText((indexForSubText) => indexForSubText + 1),
+      DELAY_MS_FOR_SUB_TEXT
+    );
+
+    return () => {
+      clearTimeout(intervalIdForText);
+      clearTimeout(intervalIdForSubText);
+    };
   }, []);
 
   function handleGitHubSignIn(): void {
@@ -71,17 +106,36 @@ export const Navbar = (props: Props) => {
             <span className="bg-gradient-to-r from-violet-100 to-cyan-300 bg-clip-text text-transparent">
               GuestBook{" "}
             </span>
-            {isMobileDevice === false && status !== "authenticated" && (
+          </h1>
+        </motion.div>
+      </div>
+      <div className="navbar-center">
+        <h1
+          className={
+            "ml-1 text-4xl font-extrabold tracking-normal text-cyan-100 subpixel-antialiased"
+          }
+        >
+          {isMobileDevice === false && status !== "authenticated" && (
+            <>
+              {" "}
               <TextTransition
                 springConfig={presets.gentle}
                 direction={"down"}
                 inline
               >
-                {TEXTS[index % TEXTS.length]}
+                {TEXTS[indexForText % TEXTS.length]}
               </TextTransition>
-            )}
-          </h1>
-        </motion.div>
+              {"   "}
+              <TextTransition
+                springConfig={presets.wobbly}
+                direction={"down"}
+                inline
+              >
+                {SUB_TEXTS[indexForSubText % SUB_TEXTS.length]}
+              </TextTransition>
+            </>
+          )}
+        </h1>
       </div>
       {session ? (
         <>
