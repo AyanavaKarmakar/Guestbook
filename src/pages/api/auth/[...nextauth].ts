@@ -31,7 +31,11 @@ export const authOptions: NextAuthOptions = {
     EmailProvider({
       server: {
         host: env.EMAIL_SERVER_HOST,
-        port: env.EMAIL_SERVER_PORT,
+        /**
+         * ! Hotfix
+         * TODO Investigate Later
+         */
+        port: parseInt(env.EMAIL_SERVER_PORT),
         auth: {
           user: env.EMAIL_SERVER_USER,
           pass: env.EMAIL_SERVER_PASSWORD,
