@@ -4,7 +4,7 @@
 
 - Stack: [T3](https://github.com/t3-oss/create-t3-app)
 - Framework: [Next.js](https://nextjs.org/)
-- Authentication: [NextAuth.js](https://next-auth.js.org/) (GitHub, Reddit, and Email Magic Link)
+- Authentication: [NextAuth.js](https://next-auth.js.org/) (GitHub, Reddit, and Email "Magic Links")
 - API: [tRPC](https://trpc.io/)
 - UI: [TailwindCSS](https://tailwindcss.com/) with some sprinkles of [DaisyUI](https://daisyui.com/)
 - Animation: [Framer Motion](https://www.framer.com/motion/)
