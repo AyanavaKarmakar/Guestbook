@@ -13,6 +13,7 @@ interface Props {
   userImage?: string | null;
   userEmail?: string | null;
   session: Session | null;
+  status: "authenticated" | "unauthenticated";
 }
 
 const TEXTS = [" — by Ayanava", " — built using the T3 Stack"];
@@ -21,7 +22,7 @@ const DELAY_MS = 5000;
 export const Navbar = (props: Props) => {
   const PLACEHOLDER_IMAGE =
     "https://ayanava-karmakar.imgix.net/https%3A%2F%2Fraw.githubusercontent.com%2FAyanavaKarmakar%2Fimgix-source-assets%2Fmain%2FsiteIcon.png?s=b56a16a7886aaf99f639de88c3fcdc0b";
-  const { userName, userImage, userEmail, session } = props;
+  const { userName, userImage, userEmail, session, status } = props;
   const isMobileDevice = useMobileDeviceStore((state) => state.isMobileDevice);
 
   const [index, setIndex] = useState(0);
@@ -70,7 +71,7 @@ export const Navbar = (props: Props) => {
             <span className="bg-gradient-to-r from-violet-100 to-cyan-300 bg-clip-text text-transparent">
               GuestBook{" "}
             </span>
-            {isMobileDevice === false && (
+            {isMobileDevice === false && status !== "authenticated" && (
               <TextTransition
                 springConfig={presets.gentle}
                 direction={"down"}
