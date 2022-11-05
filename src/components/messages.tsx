@@ -7,7 +7,7 @@ export const Messages = () => {
 
   if (isLoading === true) {
     return (
-      <div className="mt-10 text-center font-mono text-xl font-semibold tracking-wider text-white subpixel-antialiased">
+      <div className="mt-10 text-center font-mono text-xl font-semibold tracking-widest text-white subpixel-antialiased">
         <TypeAnimation
           sequence={[
             "Fetching Messages",
@@ -59,7 +59,7 @@ export const Messages = () => {
             }}
           >
             <div className="card mt-5 w-auto bg-gradient-to-r from-indigo-900 to-cyan-900 text-white">
-              <div className="card-body text-left font-mono tracking-wider subpixel-antialiased">
+              <div className="card-body text-left tracking-widest subpixel-antialiased">
                 <h2 className="card-title">{msg.message}</h2>
                 <p>— {msg.name}</p>
               </div>

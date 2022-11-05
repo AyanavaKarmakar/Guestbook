@@ -68,7 +68,7 @@ export const Modal = () => {
             isMobileDevice === true
               ? "mr-2 tracking-wider"
               : " mr-3 tracking-widest"
-          } bg-gradient-to-r from-indigo-900 via-purple-900 to-pink-900 font-mono text-lg text-white subpixel-antialiased`}
+          } bg-gradient-to-r from-indigo-900 via-purple-900 to-pink-900 text-lg text-white subpixel-antialiased`}
         >
           {isMobileDevice === true ? <TextIcon /> : "Add Message"}
         </div>
@@ -83,7 +83,7 @@ export const Modal = () => {
           >
             <CancelIcon />
           </label>
-          <h3 className="mb-5 font-mono text-2xl font-bold tracking-wider text-white subpixel-antialiased">
+          <h3 className="mb-5 text-2xl font-bold tracking-wider text-white subpixel-antialiased">
             Add New Message
           </h3>
           <input
@@ -97,7 +97,7 @@ export const Modal = () => {
           />
           <div
             onClick={handleSubmit}
-            className="btn mt-5 ml-3 bg-gradient-to-r from-indigo-900 via-purple-900 to-pink-900 font-mono text-lg tracking-widest text-white subpixel-antialiased"
+            className="btn mt-5 ml-3 bg-gradient-to-r from-indigo-900 via-purple-900 to-pink-900 text-lg tracking-widest text-white subpixel-antialiased"
           >
             <span>Submit</span>
           </div>

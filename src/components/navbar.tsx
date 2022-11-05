@@ -89,7 +89,7 @@ export const Navbar = (props: Props) => {
             userEmail !== null &&
             userEmail !== undefined && (
               <div className="navbar-center">
-                <h2 className="font-mono text-xl font-semibold tracking-wide text-white subpixel-antialiased">
+                <h2 className="text-xl font-semibold tracking-wider text-white subpixel-antialiased">
                   Hi,{" "}
                   {userName !== null
                     ? userName
@@ -151,7 +151,7 @@ export const Navbar = (props: Props) => {
               >
                 <li className="bg-error bg-gradient-to-r from-red-800 to-red-600 text-white">
                   <a
-                    className="btn btn-ghost font-mono text-xl tracking-wide subpixel-antialiased"
+                    className="btn btn-ghost text-xl tracking-wider subpixel-antialiased"
                     onClick={handleSignOut}
                   >
                     Logout
@@ -193,7 +193,7 @@ export const Navbar = (props: Props) => {
               }}
             >
               <label tabIndex={0}>
-                <button className="btn bg-gradient-to-r from-green-800 to-green-600 font-mono text-xl tracking-wide text-white subpixel-antialiased hover:motion-safe:animate-pulse">
+                <button className="btn bg-gradient-to-r from-green-800 to-green-600 text-xl tracking-wider text-white subpixel-antialiased hover:motion-safe:animate-pulse">
                   Login
                 </button>
               </label>
@@ -202,13 +202,13 @@ export const Navbar = (props: Props) => {
               tabIndex={0}
               className="dropdown-content menu rounded-box mt-3 w-52 p-2 shadow"
             >
-              <li className="bg-gradient-to-r from-black to-indigo-900 font-mono text-xl font-semibold tracking-wide text-white subpixel-antialiased hover:motion-safe:animate-pulse">
+              <li className="bg-gradient-to-r from-black to-indigo-900 text-xl font-semibold tracking-wider text-white subpixel-antialiased hover:motion-safe:animate-pulse">
                 <a onClick={handleGitHubSignIn}>GitHub</a>
               </li>
-              <li className="bg-gradient-to-r from-red-900 to-red-700 font-mono text-xl font-semibold tracking-wide text-white subpixel-antialiased hover:motion-safe:animate-pulse">
+              <li className="bg-gradient-to-r from-red-900 to-red-700 text-xl font-semibold tracking-wider text-white subpixel-antialiased hover:motion-safe:animate-pulse">
                 <a onClick={handleRedditSignIn}>Reddit</a>
               </li>
-              <li className="bg-gradient-to-r from-green-900 to-cyan-700 font-mono text-xl font-semibold tracking-wide text-white subpixel-antialiased hover:motion-safe:animate-pulse">
+              <li className="bg-gradient-to-r from-green-900 to-cyan-700 text-xl font-semibold tracking-wider text-white subpixel-antialiased hover:motion-safe:animate-pulse">
                 <a onClick={handleEmailSignIn}>Email</a>
               </li>
             </ul>
