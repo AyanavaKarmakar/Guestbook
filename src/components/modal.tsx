@@ -72,7 +72,7 @@ export const Modal = () => {
           className={`btn ${
             isMobileDevice === true
               ? "mr-2 tracking-wider"
-              : " mr-3 tracking-widest"
+              : "mr-3 tracking-widest"
           } bg-gradient-to-r from-indigo-900 via-purple-900 to-pink-900 text-lg text-white subpixel-antialiased`}
         >
           {isMobileDevice === true ? <TextIcon /> : "Add Message"}
