@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
 import { trpc } from "../utils/trpc";
 import { TypeAnimation } from "react-type-animation";
+import { useMobileDeviceStore } from "../utils/store";
 
 export const Messages = () => {
   const { data: messages, isLoading } = trpc.guestbook.getAll.useQuery();
+  const isMobileDevice = useMobileDeviceStore((state) => state.isMobileDevice);
 
   if (isLoading === true) {
     return (
@@ -28,7 +30,7 @@ export const Messages = () => {
   }
 
   return (
-    <div className="flex flex-col gap-5">
+    <div className="flex flex-col justify-evenly gap-5">
       <motion.div
         initial={{ scale: 0.0 }}
         animate={{ scale: 1.0 }}
@@ -38,8 +40,12 @@ export const Messages = () => {
           damping: 20,
         }}
       >
-        <article className="prose">
-          <h2 className="text-center text-5xl font-extrabold uppercase text-white">
+        <article
+          className={`prose ${
+            isMobileDevice === true ? "text-center" : "ml-5 mr-5"
+          }`}
+        >
+          <h2 className="text-5xl font-extrabold uppercase text-white">
             <span className="bg-gradient-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent">
               Guest Logs
             </span>
