@@ -35,8 +35,13 @@ export const Modal = () => {
     setMessage(event.target.value);
   }
 
-  function handleSubmit(): void {
-    if (session?.user !== undefined) {
+  function handleSubmit() {
+    if (
+      session?.user !== undefined &&
+      message !== undefined &&
+      message !== null &&
+      message.length >= 1
+    ) {
       if (session?.user.name !== null) {
         postMessage.mutate({
           name: session?.user.name as string,
