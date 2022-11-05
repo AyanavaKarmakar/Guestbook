@@ -4,17 +4,19 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-    /*** Removes Scrollbar ***/
-    overflow-y: scroll;
-    /*** Removes Scrollbar ***/
-    scrollbar-width: none;
-    font-family: 'Familjen Grotesk', sans-serif;
-}
+@layer base {
+    body {
+        /*** Removes Scrollbar ***/
+        overflow-y: scroll;
+        /*** Removes Scrollbar ***/
+        scrollbar-width: none;
+        font-family: 'Familjen Grotesk', sans-serif;
+    }
 
-/*** Remove Scrollbar ***/
-body::-webkit-scrollbar {
-    /* WebKit */
-    width: 0;
-    height: 0;
+    /*** Remove Scrollbar ***/
+    body::-webkit-scrollbar {
+        /* WebKit */
+        width: 0;
+        height: 0;
+    }
 }
