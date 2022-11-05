@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Session } from "next-auth";
 import { WarningIcon } from "../utils/icons";
+import { useMobileDeviceStore } from "../utils/store";
 
 interface Props {
   session: Session | null;
@@ -8,6 +9,7 @@ interface Props {
 
 export const Alert = (props: Props) => {
   const { session } = props;
+  const isMobileDevice = useMobileDeviceStore((state) => state.isMobileDevice);
 
   return (
     <motion.div
@@ -20,13 +22,15 @@ export const Alert = (props: Props) => {
       }}
     >
       {!session && (
-        <div className="alert mr-5 rounded bg-gradient-to-r from-red-900 to-yellow-900">
-          <div>
-            <WarningIcon />
-            <span className="ml-5 text-lg font-semibold tracking-wider text-white subpixel-antialiased">
-              You need to login to post a message!
-            </span>
-          </div>
+        <div className="alert flex items-center justify-center rounded bg-gradient-to-r from-red-900 to-yellow-900">
+          <WarningIcon />
+          <span
+            className={`${
+              isMobileDevice === true ? "text-md" : "text-xl"
+            } font-bold tracking-widest text-white subpixel-antialiased`}
+          >
+            You need to login to post a message!
+          </span>
         </div>
       )}
     </motion.div>

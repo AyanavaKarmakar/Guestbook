@@ -16,8 +16,33 @@ interface Props {
   status: "authenticated" | "unauthenticated";
 }
 
-const TEXTS = [" — by Ayanava", " — built using the T3 Stack"];
-const DELAY_MS = 5000;
+/**
+ * ! Hotfix
+ * TODO No idea how to optimize
+ * ? Send HELP
+ */
+const TEXTS = [
+  " Built By",
+  " Built Using",
+  " Built Using",
+  " Built Using",
+  " Built Using",
+  " Built Using",
+  " Built Using",
+  " Built Using",
+];
+const SUB_TEXTS = [
+  "Ayanava Karmakar",
+  "the T3 Stack",
+  "Next.js",
+  "tRPC",
+  "Tailwind CSS",
+  "TypeScript",
+  "Prisma",
+  "NextAuth.js",
+];
+const DELAY_MS_FOR_TEXT = 3000;
+const DELAY_MS_FOR_SUB_TEXT = 3000;
 
 export const Navbar = (props: Props) => {
   const PLACEHOLDER_IMAGE =
@@ -25,14 +50,24 @@ export const Navbar = (props: Props) => {
   const { userName, userImage, userEmail, session, status } = props;
   const isMobileDevice = useMobileDeviceStore((state) => state.isMobileDevice);
 
-  const [index, setIndex] = useState(0);
+  const [indexForText, setIndexForText] = useState(0);
+  const [indexForSubText, setIndexForSubText] = useState(0);
 
   useEffect(() => {
-    const intervalId = setInterval(
-      () => setIndex((index) => index + 1),
-      DELAY_MS
+    const intervalIdForText = setInterval(
+      () => setIndexForText((indexForText) => indexForText + 1),
+      DELAY_MS_FOR_TEXT
     );
-    return () => clearTimeout(intervalId);
+
+    const intervalIdForSubText = setInterval(
+      () => setIndexForSubText((indexForSubText) => indexForSubText + 1),
+      DELAY_MS_FOR_SUB_TEXT
+    );
+
+    return () => {
+      clearTimeout(intervalIdForText);
+      clearTimeout(intervalIdForSubText);
+    };
   }, []);
 
   function handleGitHubSignIn(): void {
@@ -69,19 +104,38 @@ export const Navbar = (props: Props) => {
             } font-extrabold uppercase tracking-normal text-cyan-100 subpixel-antialiased`}
           >
             <span className="bg-gradient-to-r from-violet-100 to-cyan-300 bg-clip-text text-transparent">
-              GuestBook{" "}
+              GuestBook
             </span>
-            {isMobileDevice === false && status !== "authenticated" && (
+          </h1>
+        </motion.div>
+      </div>
+      <div className="navbar-center">
+        <h1
+          className={
+            "ml-1 text-4xl font-extrabold tracking-normal text-cyan-100 subpixel-antialiased"
+          }
+        >
+          {isMobileDevice === false && status !== "authenticated" && (
+            <>
+              {" "}
               <TextTransition
                 springConfig={presets.gentle}
                 direction={"down"}
                 inline
               >
-                {TEXTS[index % TEXTS.length]}
+                {TEXTS[indexForText % TEXTS.length]}
               </TextTransition>
-            )}
-          </h1>
-        </motion.div>
+              {"   "}
+              <TextTransition
+                springConfig={presets.wobbly}
+                direction={"down"}
+                inline
+              >
+                {SUB_TEXTS[indexForSubText % SUB_TEXTS.length]}
+              </TextTransition>
+            </>
+          )}
+        </h1>
       </div>
       {session ? (
         <>
@@ -89,7 +143,7 @@ export const Navbar = (props: Props) => {
             userEmail !== null &&
             userEmail !== undefined && (
               <div className="navbar-center">
-                <h2 className="font-mono text-xl font-semibold tracking-wide text-white subpixel-antialiased">
+                <h2 className="text-xl font-semibold tracking-wider text-white subpixel-antialiased">
                   Hi,{" "}
                   {userName !== null
                     ? userName
@@ -151,7 +205,7 @@ export const Navbar = (props: Props) => {
               >
                 <li className="bg-error bg-gradient-to-r from-red-800 to-red-600 text-white">
                   <a
-                    className="btn btn-ghost font-mono text-xl tracking-wide subpixel-antialiased"
+                    className="btn btn-ghost text-xl tracking-wider subpixel-antialiased"
                     onClick={handleSignOut}
                   >
                     Logout
@@ -193,23 +247,29 @@ export const Navbar = (props: Props) => {
               }}
             >
               <label tabIndex={0}>
-                <button className="btn bg-gradient-to-r from-green-800 to-green-600 font-mono text-xl tracking-wide text-white subpixel-antialiased hover:motion-safe:animate-pulse">
+                <button className="btn bg-gradient-to-r from-green-800 to-green-600 text-xl tracking-wider text-white subpixel-antialiased hover:motion-safe:animate-pulse">
                   Login
                 </button>
               </label>
             </motion.div>
             <ul
               tabIndex={0}
-              className="dropdown-content menu rounded-box mt-3 w-52 p-2 shadow"
+              className="dropdown-content menu rounded-box mt-3 w-48"
             >
-              <li className="bg-gradient-to-r from-black to-indigo-900 font-mono text-xl font-semibold tracking-wide text-white subpixel-antialiased hover:motion-safe:animate-pulse">
-                <a onClick={handleGitHubSignIn}>GitHub</a>
+              <li className="bg-gradient-to-r from-black to-indigo-900 text-xl font-semibold tracking-wider text-white subpixel-antialiased hover:motion-safe:animate-pulse">
+                <a onClick={handleGitHubSignIn}>
+                  <span className="m-auto">GitHub</span>
+                </a>
               </li>
-              <li className="bg-gradient-to-r from-red-900 to-red-700 font-mono text-xl font-semibold tracking-wide text-white subpixel-antialiased hover:motion-safe:animate-pulse">
-                <a onClick={handleRedditSignIn}>Reddit</a>
+              <li className="bg-gradient-to-r from-red-900 to-red-700 text-xl font-semibold tracking-wider text-white subpixel-antialiased hover:motion-safe:animate-pulse">
+                <a onClick={handleRedditSignIn}>
+                  <span className="m-auto">Reddit</span>
+                </a>
               </li>
-              <li className="bg-gradient-to-r from-green-900 to-cyan-700 font-mono text-xl font-semibold tracking-wide text-white subpixel-antialiased hover:motion-safe:animate-pulse">
-                <a onClick={handleEmailSignIn}>Email</a>
+              <li className="bg-gradient-to-r from-green-900 to-cyan-700 text-xl font-semibold tracking-wider text-white subpixel-antialiased hover:motion-safe:animate-pulse">
+                <a onClick={handleEmailSignIn}>
+                  <span className="m-auto">Email</span>
+                </a>
               </li>
             </ul>
           </div>

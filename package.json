@@ -28,6 +28,7 @@
     "@trpc/next": "10.0.0-proxy-beta.17",
     "@trpc/react": "10.0.0-proxy-beta.17",
     "@trpc/server": "10.0.0-proxy-beta.17",
+    "@types/nodemailer": "^6.4.6",
     "@types/prop-types": "^15.7.5",
     "daisyui": "^2.31.0",
     "framer-motion": "^7.6.1",
