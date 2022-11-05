@@ -17,7 +17,7 @@ interface Props {
 }
 
 const TEXTS = [" — by Ayanava", " — built using the T3 Stack"];
-const DELAY_MS = 5000;
+const DELAY_MS = 3500;
 
 export const Navbar = (props: Props) => {
   const PLACEHOLDER_IMAGE =
