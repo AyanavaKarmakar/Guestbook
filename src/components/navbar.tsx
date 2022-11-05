@@ -102,7 +102,7 @@ export const Navbar = (props: Props) => {
           <div className="navbar-end mr-1">
             <button className="btn mr-1 bg-gradient-to-r from-sky-800 to-sky-600 hover:motion-safe:animate-pulse">
               <a
-                href="https://ayanavakarmakar.github.io/LinkTree/"
+                href="https://linktree.ayanavakarmakar.software"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -165,7 +165,7 @@ export const Navbar = (props: Props) => {
         <div className="navbar-end">
           <button className="btn mr-1 bg-gradient-to-r from-sky-800 to-sky-600 hover:motion-safe:animate-pulse">
             <a
-              href="https://ayanavakarmakar.github.io/LinkTree/"
+              href="https://linktree.ayanavakarmakar.software"
               target="_blank"
               rel="noreferrer"
             >
