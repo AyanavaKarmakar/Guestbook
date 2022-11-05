@@ -82,9 +82,7 @@ const Home: NextPage = (props: Props) => {
           userImage={session?.user?.image}
           userEmail={session?.user?.email}
         />
-        <div className="m-0.5">
-          <Alert session={session} />
-        </div>
+        <Alert session={session} />
       </header>
       <main className="relative flex flex-col items-center">
         <div className="pt-10">
