@@ -141,7 +141,7 @@ export const Navbar = (props: Props) => {
               target="_blank"
               rel="noreferrer"
             >
-              <button className="to-sky-800hover:motion-safe:animate-pulse btn mr-1 bg-gradient-to-r from-indigo-800">
+              <button className="btn mr-1 bg-gradient-to-r from-indigo-800 to-sky-800 hover:motion-safe:animate-pulse">
                 <motion.div
                   initial={{ scale: 0.0 }}
                   animate={{ scale: 1.0 }}
