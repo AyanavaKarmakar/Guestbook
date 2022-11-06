@@ -88,7 +88,11 @@ const Home: NextPage = (props: Props) => {
         <div className="pt-10">
           <div>
             <div className="mb-5 pt-10">
-              <Messages />
+              <Messages
+                status={status}
+                userEmail={session?.user?.email}
+                userName={session?.user?.name}
+              />
             </div>
           </div>
         </div>

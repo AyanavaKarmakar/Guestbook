@@ -3,9 +3,38 @@ import { trpc } from "../utils/trpc";
 import { TypeAnimation } from "react-type-animation";
 import { useMobileDeviceStore } from "../utils/store";
 
-export const Messages = () => {
+interface Props {
+  status: "authenticated" | "unauthenticated";
+  userName?: string | null;
+  userEmail?: string | null;
+}
+
+export const Messages = (props: Props) => {
+  const { status, userName, userEmail } = props;
   const { data: messages, isLoading } = trpc.guestbook.getAll.useQuery();
   const isMobileDevice = useMobileDeviceStore((state) => state.isMobileDevice);
+  const utils = trpc.useContext();
+  const deleteMessage = trpc.guestbook.deleteMessage.useMutation({
+    /**
+     * ? Configure optimistic UI update
+     * @see https://trpc.io/docs/v10/useContext#helpers
+     */
+    onMutate: () => {
+      utils.guestbook.getAll.cancel();
+      const optimisticUpdate = utils.guestbook.getAll.getData();
+
+      if (optimisticUpdate) {
+        utils.guestbook.getAll.setData(optimisticUpdate);
+      }
+    },
+
+    /**
+     * @see https://trpc.io/docs/v10/useContext#invalidating-a-single-query
+     */
+    onSettled: () => {
+      utils.guestbook.getAll.invalidate();
+    },
+  });
 
   if (isLoading === true) {
     return (
@@ -66,8 +95,35 @@ export const Messages = () => {
           >
             <div className="card mt-5 ml-5 mr-5 w-auto bg-gradient-to-r from-indigo-900 to-cyan-900 text-white">
               <div className="card-body text-left tracking-widest subpixel-antialiased">
-                <h2 className="card-title">{msg.message}</h2>
-                <p>— {msg.name}</p>
+                <div className="flex flex-col gap-5">
+                  <div>
+                    <h2 className="card-title pb-1.5">{msg.message}</h2>
+                    <p>— {msg.name}</p>
+                  </div>
+                  {status === "authenticated" &&
+                    (userName === msg.name ||
+                      userEmail?.substring(0, userEmail?.lastIndexOf("@")) ===
+                        msg.name) && (
+                      <div
+                        className={`${
+                          isMobileDevice === true
+                            ? "flex items-center justify-center pt-3"
+                            : null
+                        }`}
+                      >
+                        <button
+                          className="h-12 w-24 rounded-2xl bg-gradient-to-r from-red-800 via-rose-900 to-pink-900 hover:motion-safe:animate-pulse"
+                          onClick={() => {
+                            deleteMessage.mutate(msg.id);
+                          }}
+                        >
+                          <span className="font-semibold uppercase tracking-wider text-white subpixel-antialiased">
+                            Delete
+                          </span>
+                        </button>
+                      </div>
+                    )}
+                </div>
               </div>
             </div>
           </motion.div>

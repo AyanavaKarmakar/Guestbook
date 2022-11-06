@@ -12,6 +12,7 @@ export const guestbookRouter = router({
     try {
       return await ctx.prisma.guestbook.findMany({
         select: {
+          id: true,
           name: true,
           message: true,
         },
@@ -39,6 +40,22 @@ export const guestbookRouter = router({
           data: {
             name: input.name,
             message: input.message,
+          },
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    }),
+  /**
+   * ? Query to delete message
+   */
+  deleteMessage: protectedProcedure
+    .input(z.string())
+    .mutation(async ({ ctx, input }) => {
+      try {
+        await ctx.prisma.guestbook.delete({
+          where: {
+            id: input,
           },
         });
       } catch (error) {
