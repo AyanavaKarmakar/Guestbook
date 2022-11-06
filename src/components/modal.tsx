@@ -8,18 +8,18 @@ export const Modal = () => {
   const isMobileDevice = useMobileDeviceStore((state) => state.isMobileDevice);
   const [message, setMessage] = useState("");
   const { data: session } = useSession();
-  const ctx = trpc.useContext();
+  const utils = trpc.useContext();
   const postMessage = trpc.guestbook.postMessage.useMutation({
     /**
      * ? Configure optimistic UI update
      * @see https://trpc.io/docs/v10/useContext#helpers
      */
     onMutate: () => {
-      ctx.guestbook.getAll.cancel();
-      const optimisticUpdate = ctx.guestbook.getAll.getData();
+      utils.guestbook.getAll.cancel();
+      const optimisticUpdate = utils.guestbook.getAll.getData();
 
       if (optimisticUpdate) {
-        ctx.guestbook.getAll.setData(optimisticUpdate);
+        utils.guestbook.getAll.setData(optimisticUpdate);
       }
     },
 
@@ -27,7 +27,7 @@ export const Modal = () => {
      * @see https://trpc.io/docs/v10/useContext#invalidating-a-single-query
      */
     onSettled: () => {
-      ctx.guestbook.getAll.invalidate();
+      utils.guestbook.getAll.invalidate();
     },
   });
 
