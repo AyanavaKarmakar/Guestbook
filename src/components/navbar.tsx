@@ -141,7 +141,7 @@ export const Navbar = (props: Props) => {
               target="_blank"
               rel="noreferrer"
             >
-              <button className="btn mr-1 bg-gradient-to-r from-sky-800 to-sky-600 hover:motion-safe:animate-pulse">
+              <button className="to-sky-800hover:motion-safe:animate-pulse btn mr-1 bg-gradient-to-r from-indigo-800">
                 <motion.div
                   initial={{ scale: 0.0 }}
                   animate={{ scale: 1.0 }}
@@ -204,7 +204,7 @@ export const Navbar = (props: Props) => {
             target="_blank"
             rel="noreferrer"
           >
-            <button className="btn mr-1 bg-gradient-to-r from-sky-800 to-sky-600 hover:motion-safe:animate-pulse">
+            <button className="btn mr-1 bg-gradient-to-r from-indigo-800 to-sky-800 hover:motion-safe:animate-pulse">
               <motion.div
                 initial={{ scale: 0.0 }}
                 animate={{ scale: 1.0 }}
