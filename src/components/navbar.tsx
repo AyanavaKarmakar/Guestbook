@@ -69,9 +69,9 @@ export const Navbar = (props: Props) => {
           <h1
             className={`${
               isMobileDevice === true ? "text-4xl" : "text-5xl"
-            } mb-1.5 mr-1 pt-1 pb-1 pr-1 font-extrabold uppercase tracking-normal text-cyan-100 subpixel-antialiased`}
+            } mb-1.5 mr-1 pt-1 pb-1 pr-1 font-extrabold uppercase tracking-normal subpixel-antialiased`}
           >
-            <span className="bg-gradient-to-r from-violet-100 to-cyan-300 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-violet-200 via-cyan-200 to-emerald-200 bg-clip-text text-transparent">
               GuestBook
             </span>
           </h1>

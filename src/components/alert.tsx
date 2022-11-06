@@ -29,7 +29,15 @@ export const Alert = (props: Props) => {
               isMobileDevice === true ? "text-md" : "text-xl"
             } pl-3 font-bold tracking-widest text-white subpixel-antialiased`}
           >
-            You need to login to post a message!
+            You need to{" "}
+            <span className="underline decoration-teal-600 decoration-solid decoration-4 underline-offset-2 hover:uppercase">
+              login
+            </span>{" "}
+            to post a{" "}
+            <span className="underline decoration-indigo-700 decoration-solid decoration-4 underline-offset-2 hover:uppercase">
+              message
+            </span>
+            !
           </span>
         </div>
       )}
