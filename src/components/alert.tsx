@@ -22,12 +22,12 @@ export const Alert = (props: Props) => {
       }}
     >
       {!session && (
-        <div className="alert flex items-center justify-center rounded bg-gradient-to-r from-red-700 to-zinc-800">
+        <div className="m-3 flex items-center justify-center">
           <WarningIcon />
           <span
             className={`${
               isMobileDevice === true ? "text-md" : "text-xl"
-            } font-bold tracking-widest text-white subpixel-antialiased`}
+            } pl-3 font-bold tracking-widest text-white subpixel-antialiased`}
           >
             You need to login to post a message!
           </span>
