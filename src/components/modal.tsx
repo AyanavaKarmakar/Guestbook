@@ -94,7 +94,7 @@ export const Modal = () => {
           <div className="grid grid-cols-1 items-center justify-center">
             <input
               type="text"
-              placeholder="Type here"
+              placeholder="Start typing..."
               minLength={3}
               maxLength={100}
               className="input input-primary"
