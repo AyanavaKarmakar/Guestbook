@@ -238,17 +238,20 @@ export const Navbar = (props: Props) => {
               tabIndex={0}
               className="dropdown-content menu rounded-box mt-3 w-48"
             >
-              <li className="bg-gradient-to-r from-black to-indigo-900 text-xl font-semibold tracking-wider text-white subpixel-antialiased hover:motion-safe:animate-pulse">
+              <li className="bg-gradient-to-r from-slate-800 to-zinc-900 text-xl font-semibold tracking-wider text-white subpixel-antialiased hover:motion-safe:animate-pulse">
                 <a onClick={handleGitHubSignIn}>
                   <span className="m-auto">GitHub</span>
                 </a>
               </li>
-              <li className="bg-gradient-to-r from-red-900 to-red-700 text-xl font-semibold tracking-wider text-white subpixel-antialiased hover:motion-safe:animate-pulse">
+              <li className="bg-gradient-to-r from-red-700 to-orange-900 text-xl font-semibold tracking-wider text-white subpixel-antialiased hover:motion-safe:animate-pulse">
                 <a onClick={handleRedditSignIn}>
                   <span className="m-auto">Reddit</span>
                 </a>
               </li>
-              <li className="bg-gradient-to-r from-green-900 to-cyan-700 text-xl font-semibold tracking-wider text-white subpixel-antialiased hover:motion-safe:animate-pulse">
+              <li
+                className="bg-gradient-to-r from-green-900
+to-emerald-700 text-xl font-semibold tracking-wider text-white subpixel-antialiased hover:motion-safe:animate-pulse"
+              >
                 <a onClick={handleEmailSignIn}>
                   <span className="m-auto">Email</span>
                 </a>
