@@ -47,8 +47,8 @@ export const Navbar = (props: Props) => {
     );
 
     return () => {
-      clearTimeout(intervalIdForText);
-      clearTimeout(intervalIdForSubText);
+      clearInterval(intervalIdForText);
+      clearInterval(intervalIdForSubText);
     };
   }, []);
 
