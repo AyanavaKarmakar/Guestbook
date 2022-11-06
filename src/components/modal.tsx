@@ -88,23 +88,25 @@ export const Modal = () => {
           >
             <CancelIcon />
           </label>
-          <h3 className="mb-5 text-2xl font-bold tracking-wider text-white subpixel-antialiased">
+          <h3 className="pb-8 text-center text-2xl font-bold tracking-wider text-white subpixel-antialiased">
             Add New Message
           </h3>
-          <input
-            type="text"
-            placeholder="Type here"
-            minLength={3}
-            maxLength={100}
-            className="input input-primary input-lg w-full max-w-xs"
-            value={message}
-            onChange={(event) => handleOnChange(event)}
-          />
-          <div
-            onClick={handleSubmit}
-            className="btn mt-5 ml-3 bg-gradient-to-r from-indigo-900 via-purple-900 to-pink-900 text-lg tracking-widest text-white subpixel-antialiased"
-          >
-            <span>Submit</span>
+          <div className="grid grid-cols-1 items-center justify-center">
+            <input
+              type="text"
+              placeholder="Type here"
+              minLength={3}
+              maxLength={100}
+              className="input input-primary"
+              value={message}
+              onChange={(event) => handleOnChange(event)}
+            />
+            <div
+              onClick={handleSubmit}
+              className="btn mt-5 bg-gradient-to-r from-indigo-900 via-purple-900 to-pink-900 text-lg tracking-widest text-white subpixel-antialiased"
+            >
+              <span>Submit</span>
+            </div>
           </div>
         </div>
       </div>
