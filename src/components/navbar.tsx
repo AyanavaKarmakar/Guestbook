@@ -16,15 +16,8 @@ interface Props {
   status: "authenticated" | "unauthenticated";
 }
 
-/**
- * ! Hotfix
- * TODO No idea how to optimize
- * ? Send HELP
- */
-const TEXTS = ["Made with 💕"];
 const SUB_TEXTS = ["by Ayanava Karmakar", "using the T3 Stack"];
-const DELAY_MS_FOR_TEXT = 5000;
-const DELAY_MS_FOR_SUB_TEXT = 5000;
+const DELAY_MS_FOR_SUB_TEXT = 3500;
 
 export const Navbar = (props: Props) => {
   const PLACEHOLDER_IMAGE =
@@ -32,22 +25,15 @@ export const Navbar = (props: Props) => {
   const { userName, userImage, userEmail, session, status } = props;
   const isMobileDevice = useMobileDeviceStore((state) => state.isMobileDevice);
 
-  const [indexForText, setIndexForText] = useState(0);
   const [indexForSubText, setIndexForSubText] = useState(0);
 
   useEffect(() => {
-    const intervalIdForText = setInterval(
-      () => setIndexForText((indexForText) => indexForText + 1),
-      DELAY_MS_FOR_TEXT
-    );
-
     const intervalIdForSubText = setInterval(
       () => setIndexForSubText((indexForSubText) => indexForSubText + 1),
       DELAY_MS_FOR_SUB_TEXT
     );
 
     return () => {
-      clearInterval(intervalIdForText);
       clearInterval(intervalIdForSubText);
     };
   }, []);
@@ -99,15 +85,7 @@ export const Navbar = (props: Props) => {
         >
           {isMobileDevice === false && status !== "authenticated" && (
             <>
-              {" "}
-              <TextTransition
-                springConfig={presets.slow}
-                direction={"down"}
-                inline
-              >
-                {TEXTS[indexForText % TEXTS.length]}
-              </TextTransition>
-              {"   "}
+              Made with 💕{" "}
               <TextTransition
                 springConfig={presets.wobbly}
                 direction={"down"}
