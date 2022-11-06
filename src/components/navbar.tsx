@@ -69,7 +69,7 @@ export const Navbar = (props: Props) => {
   }
 
   return (
-    <div className="navbar bg-gradient-to-r from-indigo-600 bg-auto">
+    <div className="p-auto navbar bg-gradient-to-r from-indigo-600 bg-auto">
       <div className="navbar-start">
         <motion.div
           initial={{ scale: 0.0 }}
@@ -81,9 +81,9 @@ export const Navbar = (props: Props) => {
           }}
         >
           <h1
-            className={`ml-1 ${
-              isMobileDevice === true ? "text-3xl" : "text-4xl"
-            } font-extrabold uppercase tracking-normal text-cyan-100 subpixel-antialiased`}
+            className={`${
+              isMobileDevice === true ? "text-4xl" : "text-5xl"
+            } mb-1.5 mr-1 pt-1 pb-1 pr-1 font-extrabold uppercase tracking-normal text-cyan-100 subpixel-antialiased`}
           >
             <span className="bg-gradient-to-r from-violet-100 to-cyan-300 bg-clip-text text-transparent">
               GuestBook
