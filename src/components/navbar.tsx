@@ -229,7 +229,7 @@ export const Navbar = (props: Props) => {
               }}
             >
               <label tabIndex={0}>
-                <button className="btn bg-gradient-to-r from-green-800 to-green-600 text-xl tracking-wider text-white subpixel-antialiased hover:motion-safe:animate-pulse">
+                <button className="btn bg-gradient-to-r from-lime-900 to-emerald-700 text-xl tracking-wider text-white subpixel-antialiased hover:motion-safe:animate-pulse">
                   Login
                 </button>
               </label>
