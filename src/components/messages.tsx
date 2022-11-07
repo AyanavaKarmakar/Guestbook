@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { trpc } from "../utils/trpc";
 import { TypeAnimation } from "react-type-animation";
 import { useMobileDeviceStore } from "../utils/store";
+import { getUserNameFromEmail } from "../utils/getUserName";
 
 interface Props {
   status: "authenticated" | "unauthenticated";
@@ -102,8 +103,7 @@ export const Messages = (props: Props) => {
                   </div>
                   {status === "authenticated" &&
                     (userName === msg.name ||
-                      userEmail?.substring(0, userEmail?.lastIndexOf("@")) ===
-                        msg.name) && (
+                      getUserNameFromEmail(userEmail) === msg.name) && (
                       <div
                         className={`${
                           isMobileDevice === true

@@ -1,5 +1,6 @@
 import { useSession } from "next-auth/react";
 import { ChangeEvent, useState } from "react";
+import { getUserNameFromEmail } from "../utils/getUserName";
 import { CancelIcon, TextIcon } from "../utils/icons";
 import { useMobileDeviceStore } from "../utils/store";
 import { trpc } from "../utils/trpc";
@@ -53,10 +54,7 @@ export const Modal = () => {
         session.user.email !== undefined
       ) {
         postMessage.mutate({
-          name: session?.user.email.substring(
-            0,
-            session?.user.email.lastIndexOf("@")
-          ) as string,
+          name: getUserNameFromEmail(session?.user.email),
           message,
         });
       }
