@@ -7,6 +7,7 @@ import { useMobileDeviceStore } from "../utils/store";
 import { Modal } from "./modal";
 import TextTransition, { presets } from "react-text-transition";
 import { useState, useEffect } from "react";
+import { getUserNameFromEmail } from "../utils/getUserName";
 
 interface Props {
   userName?: string | null;
@@ -107,7 +108,7 @@ export const Navbar = (props: Props) => {
                   Hi,{" "}
                   {userName !== null
                     ? userName
-                    : userEmail.substring(0, userEmail.lastIndexOf("@"))}
+                    : getUserNameFromEmail(userEmail)}
                   !
                 </h2>
               </div>
