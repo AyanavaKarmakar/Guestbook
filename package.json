@@ -4,7 +4,7 @@
   "description": "Custom Guestbook built using the T3 Stack",
   "author": "Ayanava Karmakar",
   "license": "MIT",
-  "homepage": "https://ayanava-karmakar-guestbook.vercel.app/",
+  "homepage": "https://guestbook.ayanavakarmakar.software/",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AyanavaKarmakar/Guestbook.git"
