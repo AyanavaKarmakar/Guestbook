@@ -6,7 +6,7 @@
 - Framework: [Next.js](https://nextjs.org/)
 - Authentication: [NextAuth.js](https://next-auth.js.org/) (GitHub, Reddit, and Email "Magic Links")
 - API: [tRPC](https://trpc.io/)
-- UI: [Tailwind CSS](https://tailwindcss.com/) with some sprinkles of [DaisyUI](https://daisyui.com/)
+- UI: [Tailwind CSS](https://tailwindcss.com/) with some sprinkles of [daisyUI](https://daisyui.com/)
 - Animation: [Framer Motion](https://www.framer.com/motion/)
 - ORM: [Prisma](https://www.prisma.io/)
 - Database: [PostgreSQL](https://www.postgresql.org/) via [Railway](https://railway.app/)
