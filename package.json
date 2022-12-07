@@ -14,7 +14,7 @@
   },
   "private": true,
   "scripts": {
-    "build": "next build",
+    "build": "next build && next export -o dist",
     "dev": "next dev",
     "postinstall": "prisma generate",
     "lint": "next lint",
