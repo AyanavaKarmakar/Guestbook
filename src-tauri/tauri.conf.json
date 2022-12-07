@@ -29,8 +29,8 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "com.tauri.dev",
-      "longDescription": "",
+      "identifier": "ayanavakarmakar.software",
+      "longDescription": "Guestbook app made using create-t3-app",
       "macOS": {
         "entitlements": null,
         "exceptionDomain": "",
