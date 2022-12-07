@@ -1,4 +1,4 @@
-![Guestbook](https://socialify.git.ci/AyanavaKarmakar/Guestbook/image?description=1&font=KoHo&language=1&owner=1&pattern=Charlie%20Brown&theme=Dark)
+![Guestbook](https://socialify.git.ci/AyanavaKarmakar/Guestbook/image?description=1&font=Inter&language=1&pattern=Charlie%20Brown&theme=Dark)
 
 ## Tech Stack
 
