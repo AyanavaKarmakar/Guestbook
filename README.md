@@ -15,18 +15,6 @@
 - SMTP server: [Twilio Sendgrid](https://www.twilio.com/sendgrid/email-api)
 - Deployment: [Vercel](https://vercel.com/)
 
-## Install
-
-```sh
-yarn install
-```
-
-## Usage
-
-```sh
-yarn run start
-```
-
 ## Author
 
 **Ayanava Karmakar**
