@@ -1,4 +1,4 @@
-name: Vercel Preview URL Lighthouse Audit
+name: Lighthouse Audit
 
 on: [pull_request]
 
