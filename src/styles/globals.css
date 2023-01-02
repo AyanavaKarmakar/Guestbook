@@ -1,22 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Familjen+Grotesk&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Familjen+Grotesk&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-    body {
-        /*** Removes Scrollbar ***/
-        overflow-y: scroll;
-        /*** Removes Scrollbar ***/
-        scrollbar-width: none;
-        font-family: 'Familjen Grotesk', sans-serif;
-    }
+  body {
+    /*** Removes Scrollbar ***/
+    overflow-y: scroll;
+    /*** Removes Scrollbar ***/
+    scrollbar-width: none;
+    font-family: "Familjen Grotesk", sans-serif;
+  }
 
-    /*** Remove Scrollbar ***/
-    body::-webkit-scrollbar {
-        /* WebKit */
-        width: 0;
-        height: 0;
-    }
+  /*** Remove Scrollbar ***/
+  body::-webkit-scrollbar {
+    /* WebKit */
+    width: 0;
+    height: 0;
+  }
 }

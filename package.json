@@ -16,8 +16,9 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev",
+    "format": "prettier -w .",
     "postinstall": "prisma generate",
-    "lint": "next lint",
+    "lint": "eslint . --cache --cache-strategy content --ignore-path .gitignore",
     "start": "next start"
   },
   "dependencies": {

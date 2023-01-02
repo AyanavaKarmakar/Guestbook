@@ -23,7 +23,7 @@ const Home: NextPage = (props: Props) => {
    */
   const regexp = /android|iphone|kindle|ipad/i;
   const setIsMobileDevice = useMobileDeviceStore(
-    (state) => state.setIsMobileDevice
+    (state) => state.setIsMobileDevice,
   );
   const { data: session, status } = useSession();
 

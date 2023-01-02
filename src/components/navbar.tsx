@@ -31,7 +31,7 @@ export const Navbar = (props: Props) => {
   useEffect(() => {
     const intervalIdForSubText = setInterval(
       () => setIndexForSubText((indexForSubText) => indexForSubText + 1),
-      DELAY_MS_FOR_SUB_TEXT
+      DELAY_MS_FOR_SUB_TEXT,
     );
 
     return () => {
@@ -145,7 +145,7 @@ export const Navbar = (props: Props) => {
             >
               <Modal />
             </motion.div>
-            <div className="dropdown-end dropdown">
+            <div className="dropdown dropdown-end">
               <label tabIndex={0} className="avatar btn btn-ghost btn-circle">
                 <div className="w-10 rounded-full">
                   <Image
