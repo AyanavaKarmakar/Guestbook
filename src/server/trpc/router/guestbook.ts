@@ -32,7 +32,7 @@ export const guestbookRouter = router({
       z.object({
         name: z.string(),
         message: z.string(),
-      })
+      }),
     )
     .mutation(async ({ ctx, input }) => {
       try {

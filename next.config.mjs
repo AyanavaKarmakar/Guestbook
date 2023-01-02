@@ -4,7 +4,9 @@
  * This is especially useful for Docker builds.
  */
 
-!process.env.SKIP_ENV_VALIDATION && !process.env.CI && (await import("./src/env/server.mjs"))
+!process.env.SKIP_ENV_VALIDATION &&
+  !process.env.CI &&
+  (await import("./src/env/server.mjs"));
 
 /** @type {import("next").NextConfig} */
 const config = {
@@ -16,12 +18,12 @@ const config = {
   },
   images: {
     domains: [
-      'user-images.githubusercontent.com',
-      'avatars.githubusercontent.com',
-      'ayanava-karmakar.imgix.net'
-    ]
+      "user-images.githubusercontent.com",
+      "avatars.githubusercontent.com",
+      "ayanava-karmakar.imgix.net",
+    ],
   },
-  eslint: { ignoreDuringBuilds: !!process.env.CI }
+  eslint: { ignoreDuringBuilds: !!process.env.CI },
 };
 
-export default config
+export default config;
