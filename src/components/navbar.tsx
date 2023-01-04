@@ -145,7 +145,7 @@ export const Navbar = (props: Props) => {
             >
               <Modal />
             </motion.div>
-            <div className="dropdown dropdown-end">
+            <div className="dropdown-end dropdown">
               <label tabIndex={0} className="avatar btn btn-ghost btn-circle">
                 <div className="w-10 rounded-full">
                   <Image
