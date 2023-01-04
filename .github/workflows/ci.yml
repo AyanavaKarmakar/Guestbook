@@ -1,4 +1,4 @@
-# # this workflow will run on every pr to make sure the project is following the guidelines
+# this workflow will run on every pr to make sure the project is following the guidelines
 
 name: CI
 
