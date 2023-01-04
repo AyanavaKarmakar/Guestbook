@@ -17,9 +17,14 @@
     "build": "next build",
     "dev": "next dev",
     "format": "prettier -w .",
+    "format:check": "prettier -c .",
     "postinstall": "prisma generate",
     "lint": "eslint . --cache --cache-strategy content --ignore-path .gitignore",
-    "start": "next start"
+    "start": "next start",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
   },
   "dependencies": {
     "@next-auth/prisma-adapter": "^1.0.4",
@@ -55,6 +60,8 @@
     "autoprefixer": "^10.4.7",
     "eslint": "8.29.0",
     "eslint-config-next": "12.3.4",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.0",
     "postcss": "^8.4.14",
     "prettier": "^2.7.1",
     "prettier-plugin-tailwindcss": "^0.2.0",
