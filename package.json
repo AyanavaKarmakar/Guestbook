@@ -17,6 +17,7 @@
     "build": "next build",
     "dev": "next dev",
     "format": "prettier -w .",
+    "format:check": "prettier -c .",
     "postinstall": "prisma generate",
     "lint": "eslint . --cache --cache-strategy content --ignore-path .gitignore",
     "start": "next start"
