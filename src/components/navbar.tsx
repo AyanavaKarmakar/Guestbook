@@ -31,7 +31,7 @@ export const Navbar = (props: Props) => {
   useEffect(() => {
     const intervalIdForSubText = setInterval(
       () => setIndexForSubText((indexForSubText) => indexForSubText + 1),
-      DELAY_MS_FOR_SUB_TEXT,
+      DELAY_MS_FOR_SUB_TEXT
     );
 
     return () => {
