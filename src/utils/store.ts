@@ -17,5 +17,5 @@ export const useMobileDeviceStore = create<MobileDeviceStoreValidatorType>(
       set((state) => ({
         isMobileDevice: (state.isMobileDevice = updatedState),
       })),
-  }),
+  })
 );
