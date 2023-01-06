@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Familjen+Grotesk&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -10,7 +8,6 @@
     overflow-y: scroll;
     /*** Removes Scrollbar ***/
     scrollbar-width: none;
-    font-family: "Familjen Grotesk", sans-serif;
   }
 
   /*** Remove Scrollbar ***/
