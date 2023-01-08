@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Session } from "next-auth";
-import { signIn, signOut } from "next-auth/react";
+import { signOut } from "next-auth/react";
 import Image from "next/image";
 import { InfoIcon } from "../utils/icons";
 import { useMobileDeviceStore } from "../utils/store";
@@ -38,18 +38,6 @@ export const Navbar = (props: Props) => {
       clearInterval(intervalIdForSubText);
     };
   }, []);
-
-  function handleGitHubSignIn() {
-    signIn("github");
-  }
-
-  function handleRedditSignIn() {
-    signIn("reddit");
-  }
-
-  function handleEmailSignIn() {
-    signIn("email");
-  }
 
   function handleSignOut() {
     signOut();
@@ -145,7 +133,7 @@ export const Navbar = (props: Props) => {
             >
               <Modal />
             </motion.div>
-            <div className="dropdown dropdown-end">
+            <div className="dropdown-end dropdown">
               <label tabIndex={0} className="avatar btn btn-ghost btn-circle">
                 <div className="w-10 rounded-full">
                   <Image
@@ -208,34 +196,14 @@ export const Navbar = (props: Props) => {
               }}
             >
               <label tabIndex={0}>
-                <button className="btn bg-gradient-to-r from-lime-900 to-emerald-700 text-xl tracking-wider text-white subpixel-antialiased hover:motion-safe:animate-pulse">
+                <a
+                  href={"/api/auth/signin"}
+                  className="btn bg-gradient-to-r from-lime-900 to-emerald-700 text-xl tracking-wider text-white subpixel-antialiased hover:motion-safe:animate-pulse"
+                >
                   Login
-                </button>
+                </a>
               </label>
             </motion.div>
-            <ul
-              tabIndex={0}
-              className="dropdown-content menu rounded-box mt-3 w-48"
-            >
-              <li className="bg-gradient-to-r from-slate-800 to-zinc-900 text-xl font-semibold tracking-wider text-white subpixel-antialiased hover:motion-safe:animate-pulse">
-                <a onClick={handleGitHubSignIn}>
-                  <span className="m-auto">GitHub</span>
-                </a>
-              </li>
-              <li className="bg-gradient-to-r from-red-700 to-orange-900 text-xl font-semibold tracking-wider text-white subpixel-antialiased hover:motion-safe:animate-pulse">
-                <a onClick={handleRedditSignIn}>
-                  <span className="m-auto">Reddit</span>
-                </a>
-              </li>
-              <li
-                className="bg-gradient-to-r from-green-900
-to-emerald-700 text-xl font-semibold tracking-wider text-white subpixel-antialiased hover:motion-safe:animate-pulse"
-              >
-                <a onClick={handleEmailSignIn}>
-                  <span className="m-auto">Email</span>
-                </a>
-              </li>
-            </ul>
           </div>
         </div>
       )}
