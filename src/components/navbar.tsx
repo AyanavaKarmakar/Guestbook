@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Session } from "next-auth";
-import { signOut } from "next-auth/react";
+import { signIn, signOut } from "next-auth/react";
 import Image from "next/image";
 import { InfoIcon } from "../utils/icons";
 import { useMobileDeviceStore } from "../utils/store";
@@ -198,6 +198,10 @@ export const Navbar = (props: Props) => {
               <label tabIndex={0}>
                 <a
                   href={"/api/auth/signin"}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    signIn();
+                  }}
                   className="btn bg-gradient-to-r from-lime-900 to-emerald-700 text-xl tracking-wider text-white subpixel-antialiased hover:motion-safe:animate-pulse"
                 >
                   Login
