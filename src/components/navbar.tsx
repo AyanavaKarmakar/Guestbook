@@ -197,7 +197,7 @@ export const Navbar = (props: Props) => {
             >
               <label tabIndex={0}>
                 <a
-                  href={"/api/auth/signin"}
+                  // href={"/api/auth/signin"}
                   onClick={(e) => {
                     e.preventDefault();
                     signIn();
