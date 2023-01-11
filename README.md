@@ -15,7 +15,7 @@
 - UI: [Tailwind CSS](https://tailwindcss.com/) with some sprinkles of [daisyUI](https://daisyui.com/)
 - Animation: [Framer Motion](https://www.framer.com/motion/)
 - ORM: [Prisma](https://www.prisma.io/)
-- Database: [MySQL](https://www.mysql.com/) via [PlanetScale](https://planetscale.com/)
+- Database: [PostgreSQL](https://www.postgresql.org/) via [Railway](https://railway.app/)
 - Schema Validation: [Zod](https://github.com/colinhacks/zod)
 - State Management: [Zustand](https://zustand-demo.pmnd.rs/)
 - SMTP server: [Twilio Sendgrid](https://www.twilio.com/sendgrid/email-api)
