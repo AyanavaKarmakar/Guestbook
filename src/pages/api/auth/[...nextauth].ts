@@ -3,6 +3,7 @@ import GithubProvider from "next-auth/providers/github";
 import RedditProvider from "next-auth/providers/reddit";
 import DiscordProvider from "next-auth/providers/discord";
 import EmailProvider from "next-auth/providers/email";
+import GoogleProvider from "next-auth/providers/google";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { prisma } from "../../../server/db/client";
 import { env } from "../../../env/server.mjs";
@@ -32,6 +33,10 @@ export const authOptions: NextAuthOptions = {
     RedditProvider({
       clientId: env.REDDIT_CLIENT_ID,
       clientSecret: env.REDDIT_CLIENT_SECRET,
+    }),
+    GoogleProvider({
+      clientId: env.GOOGLE_CLIENT_ID,
+      clientSecret: env.GOOGLE_CLIENT_SECRET,
     }),
     EmailProvider({
       server: {
